@@ -1,0 +1,1 @@
+//Query para construções completares do banco de dados
