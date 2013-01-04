@@ -2,8 +2,8 @@ package model;
 
 public class TipoDeItem {
 	private int idTipoDeItem;
-	private String nome;
-	private String descricao;
+	private String nome="";
+	private String descricao="";
 	
 	public int getIdTipoDeItem() {
 		return idTipoDeItem;

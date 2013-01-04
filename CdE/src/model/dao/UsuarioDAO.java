@@ -11,7 +11,6 @@ import model.Usuario;
 public class UsuarioDAO extends DAO {
 	private Usuario objeto;
 	
-	
 	public UsuarioDAO() throws SQLException {
 		super();
 		this.setId("idusuario");
@@ -23,7 +22,6 @@ public class UsuarioDAO extends DAO {
 	@Override
 	public void exclui(Object o) throws SQLException {
 		objeto  = (Usuario)o;
-		//objeto = (Escolaridade) this.getOne(objeto.getIdEscolaridade());
 		String sql = delete+objeto.getIdUsuario();
 		PreparedStatement stmt = connection.prepareStatement(sql);
 						
@@ -35,19 +33,16 @@ public class UsuarioDAO extends DAO {
 	@Override
 	public Vector<?> getList(String queryComplementar)
 			throws SQLException {
-		String sql = "select idescolaridade, nome from tbescolaridade";
-		PreparedStatement stmt = this.connection.prepareStatement(sql);
+		PreparedStatement stmt = this.connection.prepareStatement(queryComplementar);
 
 		ResultSet rs = stmt.executeQuery();
-		Vector<Object> objetos = new Vector<Object>();
+		Vector<Usuario> objetos = new Vector<Usuario>();
 		while (rs.next()) {
-			//comum a pessoa...
-			//Começa aqui...
 			objeto = new Usuario();
 			objeto.setIdUsuario(Integer.parseInt(rs.getString(getId())));
 			objeto.setLogin(rs.getString("login"));
 			objeto.setSenha(rs.getString("senha"));
-			
+			objeto.setNome(rs.getString("nome"));
 			//termina aqui...
 			
 		objetos.add(objeto);
@@ -63,22 +58,21 @@ public class UsuarioDAO extends DAO {
 		String sql =select+queryComplementar;
 		PreparedStatement stmt = connection.prepareStatement(sql);
 
-		System.out.println(sql);
-		
 		objeto = new Usuario();
 		rs = stmt.executeQuery(sql);
 		
 		if (rs.next()){
-			//comum a pessoa...
-			//Começa aqui...
 			objeto.setIdUsuario(Integer.parseInt(rs.getString(getId())));
 			objeto.setLogin(rs.getString("login"));
 			objeto.setSenha(rs.getString("senha"));
-			//termina aqui...
+			objeto.setNome(rs.getString("nome"));
 			
+			
+			//termina aqui...
 			rs.close();
 			stmt.close();
 		}
+		
 		return objeto;
 	}
 	
@@ -86,12 +80,13 @@ public class UsuarioDAO extends DAO {
 	public void insert(Object o) throws SQLException {
 		// prepared statement para inserção
 		objeto = (Usuario)o;
-		String sql = "INSERT INTO "+table+" (login, senha) VALUES (?,?)";
+		String sql = "INSERT INTO "+table+" (login, senha, nome) VALUES (?,?,?)";
 		PreparedStatement stmt = connection.prepareStatement(sql);
 		
 		// seta os valores...
 		stmt.setString(1,objeto.getLogin());
 		stmt.setString(2,objeto.getSenha());
+		stmt.setString(3,objeto.getNome());
 		
 		// executa os query criado...
 		stmt.execute();
@@ -100,25 +95,18 @@ public class UsuarioDAO extends DAO {
 	
 	@Override
 	public void updateDados(Object o) throws SQLException {
-		String sql = "UPDATE "+table+" set login=?, senha=?  WHERE "+getId()+" ="+objeto.getIdUsuario();
+		objeto = (Usuario)o;
+		String sql = "UPDATE "+table+" set login=?, senha=?, nome=?  WHERE "+getId()+" ="+objeto.getIdUsuario();
 		PreparedStatement stmt = connection.prepareStatement(sql);
 		
 		// seta os valores...
 		stmt.setString(1,objeto.getLogin());
 		stmt.setString(2,objeto.getSenha());
+		stmt.setString(3,objeto.getNome());
 						
 		// executa os query criado...
 		stmt.executeUpdate();
 		stmt.close();
-	}
-	
-	/**
-	 * Metodo para listar com like...
-	 */
-	public final Vector<?> getListPorCampo(String field, String value) throws SQLException {
-		String queryComplementar = " where " + field + " LIKE '" + value + "%'"; 
-		objetos=this.getList(queryComplementar);
-		return objetos;
 	}
 
 }

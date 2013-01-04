@@ -4,9 +4,9 @@ package model;
 public class Pessoa{
 
 	private int idPessoa;
-	private String telefone;
-	private String email;
-	private String nome;
+	private String telefone="";
+	private String email="";
+	private String nome="";
 	private boolean bloqueado;
 	
 	public int getIdPessoa() {

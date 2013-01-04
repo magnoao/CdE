@@ -1,10 +1,15 @@
 package model;
 
+import java.sql.SQLException;
+
+import model.dao.TipoDeItemDAO;
+
 public class Item {
 	private int idItem;
-	private String nome;
-	private String descricao;
+	private String nome="";
+	private String descricao="";
 	private boolean disponivel;
+	private TipoDeItem tipoDeItem;
 	
 	public int getIdItem() {
 		return idItem;
@@ -29,6 +34,20 @@ public class Item {
 	}
 	public void setDisponivel(boolean disponivel) {
 		this.disponivel = disponivel;
+	}
+	public TipoDeItem getTipoDeItem() {
+		return tipoDeItem;
+	}
+	public void setTipoDeItem(TipoDeItem tipoDeItem) {
+		this.tipoDeItem = tipoDeItem;
+	}
+	public void setTipoDeItem(int tipoDeItem) {
+		try {
+			this.tipoDeItem = (TipoDeItem)new TipoDeItemDAO().getOne(tipoDeItem);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	

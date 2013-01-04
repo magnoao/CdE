@@ -3,8 +3,9 @@ package model;
 public class Usuario {
 	
 	private int idUsuario;
-	private String login;
-	private String senha;
+	private String login="";
+	private String senha="";
+	private String nome="";
 	
 	public int getIdUsuario() {
 		return idUsuario;
@@ -23,16 +24,23 @@ public class Usuario {
 	}
 	
 	public String getSenha() {
-		return senha;
+		return this.senha;
 	}
 	
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+
+	public String getNome() {
+		return this.nome;
+	}
 	
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 	@Override
 	public String toString() {
-		return this.idUsuario+" : "+this.login; 
+		return this.idUsuario+" : "+this.login+"   -   "+this.nome; 
 	}
 	
 
