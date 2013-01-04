@@ -8,6 +8,7 @@
  TipoDeItem tipo = new TipoDeItem();
  
  Item p = new Item();
+ p.setTipoDeItem(tipo);
  int id=0;
  if(request.getParameter("idItem")!=null){
 	 id = Integer.parseInt(request.getParameter("idItem"));
@@ -16,7 +17,6 @@
 	 }
  }
  %>
-
 <div id="fbox2">
 	<form method="post" action="item/cadastrarItem.jsp">
 		<table>
@@ -48,7 +48,6 @@
 				<td colspan="2" align="center">
 					<input type="hidden" name="idItem" value="<%=p.getIdItem()%>">
 					<input type="submit" value="Salvar">
-					<input type="submit" value="Limpar">
 				</td>
 			</tr>
 		</table>

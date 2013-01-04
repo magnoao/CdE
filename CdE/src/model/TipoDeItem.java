@@ -1,7 +1,7 @@
 package model;
 
 public class TipoDeItem {
-	private int idTipoDeItem;
+	private int idTipoDeItem=0;
 	private String nome="";
 	private String descricao="";
 	

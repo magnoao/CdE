@@ -13,14 +13,14 @@ if(request.getParameter("subMenuAtual")!=null){
 			<form method="post">						
 				<input type="hidden" name="subMenuAtual" value="formItem">
 				<input type="hidden" name="menuAtual" value="item">
-				<h3><a accesskey="5" title="" onclick="submit()">Cadastrar Item</a></h3>
+				<h3><a accesskey="1" title="" onclick="submit()">Cadastrar Item</a></h3>
 			</form>
 		</li>
 		<li>
 			<form method="post">						
 				<input type="hidden" name="subMenuAtual" value="listaItem">
 				<input type="hidden" name="menuAtual" value="item">
-				<h3><a accesskey="5" title="" onclick="submit()">Listar Item</a></h3>
+				<h3><a accesskey="2" title="" onclick="submit()">Listar Item</a></h3>
 			</form>
 		</li>
 	</ul>

@@ -13,6 +13,5 @@ if(request.getParameter("idPessoa")!=null){
 	}
 }
 //request.getRequestDispatcher("/").forward(request, response);
-// response.sendRedirect("/CdE");
+response.sendRedirect("/CdE");
 %>
-<jsp:forward page="/CdE/index.jsp"></jsp:forward>

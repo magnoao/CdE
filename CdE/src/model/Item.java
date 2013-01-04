@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import model.dao.TipoDeItemDAO;
 
 public class Item {
-	private int idItem;
+	private int idItem =0;
 	private String nome="";
 	private String descricao="";
 	private boolean disponivel;
