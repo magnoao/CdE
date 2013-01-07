@@ -1,7 +1,6 @@
-<jsp:include page="../header.jsp"></jsp:include>
-<%@page import="java.util.*, model.*, model.dao.*"%>
+<jsp:include page="header.jsp"></jsp:include>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1" import="java.util.*, model.*, model.dao.*"%>
     
  <%
  Vector<Pessoa> vetPessoa = (Vector<Pessoa>)new PessoaDAO().getList();
@@ -23,7 +22,7 @@
  %>
 
 <div id="fbox2">
-	<form method="post" action="emprestimo/cadastrarEmprestimo.jsp">
+	<form method="post" action="cadastrarEmprestimo.jsp">
 		<table>
 			<tr>
 				<td>Quem?</td>
@@ -64,6 +63,8 @@
 			<tr>
 				<td colspan="2" align="center">
 					<input type="hidden" name="idEmprestimo" value="<%=p.getIdEmprestimo()%>">
+					<input type="hidden" name="subMenuAtual" value="listaEmprestimo">
+					<input type="hidden" name="menuAtual" value="emprestimo">
 					<input type="submit" value="Salvar">
 					<input type="submit" value="Limpar">
 				</td>

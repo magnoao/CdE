@@ -1,4 +1,4 @@
-<jsp:include page="../header.jsp"></jsp:include>
+<jsp:include page="header.jsp"></jsp:include>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" import="java.util.*, model.*, model.dao.*"%>
 <%
@@ -19,7 +19,7 @@ for (int i = 0; i < vet.size(); i++) {
 %>
 		<tr>
 			<td>
-				<form method="post">
+				<form method="post" action="index.jsp">
 					<input type="submit" name="idTipoDeItem" value="<%=p.getIdTipoDeItem() %>">
 					<input type="hidden" name="subMenuAtual" value="formTipo">
 					<input type="hidden" name="menuAtual" value="tipo">

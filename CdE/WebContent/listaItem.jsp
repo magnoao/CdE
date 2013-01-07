@@ -1,4 +1,4 @@
-<jsp:include page="../header.jsp"></jsp:include>
+<jsp:include page="header.jsp"></jsp:include>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" import="java.util.*, model.*, model.dao.*"%>
 <%
@@ -20,7 +20,7 @@ for (int i = 0; i < vet.size(); i++) {
 %>
 		<tr>
 			<td>
-				<form method="post">
+				<form method="post" action="index.jsp">
 					<input type="submit" name="idItem" value="<%=p.getIdItem() %>">
 					<input type="hidden" name="subMenuAtual" value="formItem">
 					<input type="hidden" name="menuAtual" value="item">
@@ -30,7 +30,7 @@ for (int i = 0; i < vet.size(); i++) {
 			<td><%=p.getTipoDeItem().getNome()%></td>
 			<td><% p.isDisponivel();%></td>
 			<td>
-				<form method="post" action="item/excluirItem.jsp">
+				<form method="post" action="excluirItem.jsp">
 					<input type="submit" value="x" >
 					<input type="hidden" name="idItem" value="<%=p.getIdItem() %>">
 					<input type="hidden" name="subMenuAtual" value="listaItem">

@@ -1,4 +1,4 @@
-<jsp:include page="../header.jsp"></jsp:include>
+<jsp:include page="header.jsp"></jsp:include>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%
@@ -10,17 +10,17 @@ if(request.getParameter("subMenuAtual")!=null){
 <div id="fbox1">
 	<ul>
 		<li>
-			<form method="post">						
+			<form method="post" action="index.jsp">						
 				<input type="hidden" name="subMenuAtual" value="formPessoa">
 				<input type="hidden" name="menuAtual" value="pessoa">
-				<h3><a accesskey="5" title="" onclick="submit()">Cadastrar Pessoa</a></h3>
+				<h3><a accesskey="5" title="Cadstrar Pessoa" onclick="submit()">Cadastrar Pessoa</a></h3>
 			</form>
 		</li>
 		<li>
-			<form method="post">						
+			<form method="post" action="index.jsp">	
 				<input type="hidden" name="subMenuAtual" value="listaPessoa">
 				<input type="hidden" name="menuAtual" value="pessoa">
-				<h3><a accesskey="5" title="" onclick="submit()">Listar Pessoas</a></h3>
+				<h3><a accesskey="5" title="Listar Pessoas" onclick="submit()">Listar Pessoas</a></h3>
 			</form>
 		</li>
 	</ul>

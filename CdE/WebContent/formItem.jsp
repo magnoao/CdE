@@ -1,4 +1,4 @@
-<jsp:include page="../header.jsp"></jsp:include>
+<jsp:include page="header.jsp"></jsp:include>
 <%@page import="java.util.*, model.*, model.dao.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -18,7 +18,7 @@
  }
  %>
 <div id="fbox2">
-	<form method="post" action="item/cadastrarItem.jsp">
+	<form method="post" action="cadastrarItem.jsp">
 		<table>
 			<tr>
 				<td>Nome:</td>
@@ -47,6 +47,8 @@
 			<tr>
 				<td colspan="2" align="center">
 					<input type="hidden" name="idItem" value="<%=p.getIdItem()%>">
+					<input type="hidden" name="subMenuAtual" value="listaItem">
+					<input type="hidden" name="menuAtual" value="item">
 					<input type="submit" value="Salvar">
 				</td>
 			</tr>

@@ -1,4 +1,4 @@
-<jsp:include page="../header.jsp"></jsp:include>
+<jsp:include page="header.jsp"></jsp:include>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" import="java.util.*, model.*, model.dao.*"%>
 <%
@@ -21,7 +21,7 @@ for (int i = 0; i < vet.size(); i++) {
 %>
 		<tr>
 			<td>
-				<form method="post">
+				<form method="post" action="index.jsp">
 					<input type="submit" name="idPessoa" value="<%=p.getIdPessoa() %>">
 					<input type="hidden" name="subMenuAtual" value="formPessoa">
 					<input type="hidden" name="menuAtual" value="pessoa">
@@ -32,11 +32,11 @@ for (int i = 0; i < vet.size(); i++) {
 			<td><%=p.getTelefone() %></td>
 			<td><% p.isBloqueado();%></td>
 			<td>
-				<form method="post" action="pessoa/excluirPessoa.jsp">
+				<form method="post" action="excluirPessoa.jsp" onsubmit="reload()">
 					<input type="submit" value="x" >
 					<input type="hidden" name="idPessoa" value="<%=p.getIdPessoa() %>">
-					<input type="hidden" name="subMenuAtual" value="listaPessoa">
 					<input type="hidden" name="menuAtual" value="pessoa">
+					<input type="hidden" name="acao" value="excluirPessoa">
 				</form>
 			</td>
 		</tr>

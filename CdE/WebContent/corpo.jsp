@@ -3,12 +3,10 @@
     pageEncoding="ISO-8859-1" import="util.*"%>
 <% 
 //request.setAttribute("pageAtual","pessoa.jsp"); 
-String menuAtual = "inicio/inicio.jsp";
+String menuAtual = "inicio.jsp";
 if(request.getParameter("menuAtual")!=null){
-	menuAtual = request.getParameter("menuAtual").toString()+"/"+request.getParameter("menuAtual").toString()+".jsp";
+	menuAtual = request.getParameter("menuAtual").toString()+".jsp";
 }
-
-
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -49,31 +47,31 @@ Released   : 20121013
 		<div id="menu">
 			<ul>
 				<li <%if(menuAtual.equals("inicio/inicio.jsp")){ %>class="current_page_item" <%}%>>
-					<form method="post">			
+					<form method="post" action="index.jsp">
 						<input type="hidden" name="menuAtual" value="inicio">
 						<a accesskey="1" title="Inicio" onclick="submit()">Inicio</a>
 					</form>
 				</li>
 				<li <%if(menuAtual.equals("pessoa/pessoa.jsp")){ %>class="current_page_item" <%}%>>
-					<form method="post">						
+					<form method="post" action="index.jsp">						
 						<input type="hidden" name="menuAtual" value="pessoa">
 						<a accesskey="2" title="Pessoa" onclick="submit()">Pessoa</a>
 					</form>
 				</li>
 				<li <%if(menuAtual.equals("item/item.jsp")){ %>class="current_page_item" <%}%>>
-					<form method="post">	
+					<form method="post" action="index.jsp">	
 						<input type="hidden" name="menuAtual" value="item">
 						<a href="#" accesskey="3" title="Item" onclick="submit()">Item</a>
 					</form>
 				</li>
 				<li <%if(menuAtual.equals("tipo/tipo.jsp")){ %>class="current_page_item" <%}%>>
-					<form method="post">	
+					<form method="post" action="index.jsp">
 						<input type="hidden" name="menuAtual" value="tipo">
 						<a accesskey="4" title="Tipo" onclick="submit()">Tipo</a>
 					</form>
 				</li>
 				<li <%if(menuAtual.equals("emprestimo/emprestimo.jsp")){ %>class="current_page_item" <%}%>>
-					<form method="post">	
+					<form method="post" action="index.jsp">
 						<input type="hidden" name="menuAtual" value="emprestimo">
 						<a accesskey="5" title="Emprestimo" onclick="submit()">Emprestimo</a>
 					</form>
