@@ -4,8 +4,11 @@
 <% 
 //request.setAttribute("pageAtual","pessoa.jsp"); 
 String menuAtual = "Home.jsp";
+String selecionado = "Home";
 if(request.getParameter("menuAtual")!=null){
-	menuAtual = request.getParameter("menuAtual").toString()+".jsp";
+	selecionado = request.getParameter("menuAtual");
+	menuAtual= selecionado +".jsp";
+	
 }
 
 Vector<String> menuTextos = new Vector<String>();
@@ -56,7 +59,7 @@ Released   : 20121013
 			<ul>
 				<%for(int i=0; i<menuTextos.size(); i++){ 
 					String textoExibido = menuTextos.get(i);%>
-					<li <%if(menuAtual.equals(textoExibido)){ %>class="current_page_item" <%}%>>
+					<li <%if(selecionado.equals(textoExibido)){ %>class="current_page_item" <%}%>>
 						<form method="post" action="index.jsp">
 							<input type="hidden" name="menuAtual" value="<%=textoExibido%>">
 							<a accesskey="1" title="<%=textoExibido%>" onclick="submit()"><%=textoExibido%></a>

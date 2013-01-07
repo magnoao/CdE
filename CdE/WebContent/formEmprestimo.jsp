@@ -19,6 +19,8 @@
 		 p = (Emprestimo) new EmprestimoDAO().getOne(id);
 	 }
  }
+ String textoMenuAtual = "Emprestimo";
+ String textoSubMenu02 = "listaEmprestimo";
  %>
 
 <div id="fbox2">
@@ -63,8 +65,8 @@
 			<tr>
 				<td colspan="2" align="center">
 					<input type="hidden" name="idEmprestimo" value="<%=p.getIdEmprestimo()%>">
-					<input type="hidden" name="subMenuAtual" value="listaEmprestimo">
-					<input type="hidden" name="menuAtual" value="emprestimo">
+					<input type="hidden" name="subMenuAtual" value="<%= textoSubMenu02%>">
+					<input type="hidden" name="menuAtual" value="<%=textoMenuAtual%>">
 					<input type="submit" value="Salvar">
 					<input type="submit" value="Limpar">
 				</td>

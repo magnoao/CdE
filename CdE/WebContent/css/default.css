@@ -34,18 +34,6 @@ p, ol {
 strong {
 }
 
-a {
-	color: #5C5539;
-}
-
-a:hover {
-	text-decoration: none;
-}
-
-a img {
-	border: none;
-}
-
 img.border {
 }
 
@@ -253,6 +241,23 @@ hr {
 }
 
 #footer-content a {
+	display: block;
+	margin-left: 1px;
+	padding: 5px 20px 5px 20px;
+	text-decoration: none;
+	text-align: center;
+	text-transform: uppercase;
+	font-family: 'Oswald', sans-serif;
+	font-size: 18px;
+	font-weight: 300;
+	color: #10202F;
+}
+
+#footer-content a:hover, .current_page_item a {
+	text-decoration: none;
+	background: #1B2024;
+	border-radius: 5px;
+	color: #FFFFFF;
 }
 
 #footer-content h2 {

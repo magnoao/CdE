@@ -13,15 +13,17 @@ numObjetosAtrazados=dao.get("SELECT count(*) numObjetosAtrazados FROM tbempresti
 numObjetosEmprestados=dao.get("SELECT count(*) numObjetosEmprestados FROM tbemprestimo WHERE datadevolucao = '0000-00-00';","numObjetosEmprestados");
 numPessoacomObjeto=dao.get("SELECT count(*) totalpessoas FROM tbemprestimo WHERE datadevolucao = '0000-00-00' group by idpessoa ;","totalpessoas");
 
-
+String textoMenuAtual = "Pessoa";
+String textoSubMenu01 = "formPessoa";
+String textoSubMenu02 = "listaPessoa";
 
 %>
 <table>
 	<tr>
 		<td align="right">
 			<form method="post" action="index.jsp">	
-					<input type="hidden" name="subMenuAtual" value="listaPessoa">
-					<input type="hidden" name="menuAtual" value="pessoa">
+					<input type="hidden" name="subMenuAtual" value="<%= textoSubMenu02%>">
+					<input type="hidden" name="menuAtual" value="<%=textoMenuAtual%>">
 					<a accesskey="5" title="Listar Pessoas" onclick="submit()">Numero de pessoas Cadastradas:<%=numPessoas %></a>
 			</form>
 		</td>

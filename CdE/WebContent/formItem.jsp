@@ -16,6 +16,9 @@
 		 p = (Item) new ItemDAO().getOne(id);
 	 }
  }
+ 
+ String textoMenuAtual = "Item";
+ String textoSubMenu02 = "listaItem";
  %>
 <div id="fbox2">
 	<form method="post" action="cadastrarItem.jsp">
@@ -47,8 +50,8 @@
 			<tr>
 				<td colspan="2" align="center">
 					<input type="hidden" name="idItem" value="<%=p.getIdItem()%>">
-					<input type="hidden" name="subMenuAtual" value="listaItem">
-					<input type="hidden" name="menuAtual" value="item">
+					<input type="hidden" name="subMenuAtual" value="<%= textoSubMenu02%>">
+					<input type="hidden" name="menuAtual" value="<%=textoMenuAtual%>">
 					<input type="submit" value="Salvar">
 				</td>
 			</tr>

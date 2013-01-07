@@ -12,7 +12,12 @@
 		 p = (TipoDeItem) new TipoDeItemDAO().getOne(id);
 	 }
  }
+ String textoMenuAtual = "Tipo";
+ String textoSubMenu02 = "listaTipo";
+ 
  %>
+
+
 
 <div id="fbox2">
 	<form method="post" action="cadastrarTipo.jsp">
@@ -28,8 +33,8 @@
 			<tr>
 				<td colspan="2" align="center">
 					<input type="hidden" name="idTipoDeItem" value="<%=p.getIdTipoDeItem()%>">
-					<input type="hidden" name="subMenuAtual" value="listaTipo">
-					<input type="hidden" name="menuAtual" value="tipo">
+					<input type="hidden" name="subMenuAtual" value="<%= textoSubMenu02%>">
+					<input type="hidden" name="menuAtual" value="<%=textoMenuAtual%>">
 					<input type="submit" value="Salvar">
 					<input type="submit" value="Limpar">
 				</td>

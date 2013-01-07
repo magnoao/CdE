@@ -3,6 +3,9 @@
     pageEncoding="ISO-8859-1" import="java.util.*, model.*, model.dao.*"%>
 <%
 Vector<Item> vet = (Vector<Item>)new ItemDAO().getList();
+String textoMenuAtual = "Item";
+String textoSubMenu01 = "formItem";
+String textoSubMenu02 = "listaItem";
 %>
 <div id="fbox2">
 	<table>
@@ -22,8 +25,8 @@ for (int i = 0; i < vet.size(); i++) {
 			<td>
 				<form method="post" action="index.jsp">
 					<input type="submit" name="idItem" value="<%=p.getIdItem() %>">
-					<input type="hidden" name="subMenuAtual" value="formItem">
-					<input type="hidden" name="menuAtual" value="item">
+					<input type="hidden" name="subMenuAtual" value="<%= textoSubMenu01%>">
+					<input type="hidden" name="menuAtual" value="<%=textoMenuAtual%>">
 				</form>
 			</td>
 			<td><%=p.getNome() %></td>
@@ -33,8 +36,8 @@ for (int i = 0; i < vet.size(); i++) {
 				<form method="post" action="excluirItem.jsp">
 					<input type="submit" value="x" >
 					<input type="hidden" name="idItem" value="<%=p.getIdItem() %>">
-					<input type="hidden" name="subMenuAtual" value="listaItem">
-					<input type="hidden" name="menuAtual" value="item">
+					<input type="hidden" name="menuAtual" value="<%=textoMenuAtual%>">
+					<input type="hidden" name="subMenuAtual" value="<%= textoSubMenu02%>">
 				</form>
 			</td>
 		</tr>
