@@ -1,12 +1,20 @@
 <jsp:include page="header.jsp"></jsp:include>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import="util.*"%>
+    pageEncoding="ISO-8859-1" import="java.util.*, util.*"%>
 <% 
 //request.setAttribute("pageAtual","pessoa.jsp"); 
-String menuAtual = "inicio.jsp";
+String menuAtual = "Home.jsp";
 if(request.getParameter("menuAtual")!=null){
 	menuAtual = request.getParameter("menuAtual").toString()+".jsp";
 }
+
+Vector<String> menuTextos = new Vector<String>();
+menuTextos.add("Home");
+menuTextos.add("Pessoa");
+menuTextos.add("Item");
+menuTextos.add("Tipo");
+menuTextos.add("Emprestimo");
+
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -46,36 +54,15 @@ Released   : 20121013
 		</div>
 		<div id="menu">
 			<ul>
-				<li <%if(menuAtual.equals("inicio/inicio.jsp")){ %>class="current_page_item" <%}%>>
-					<form method="post" action="index.jsp">
-						<input type="hidden" name="menuAtual" value="inicio">
-						<a accesskey="1" title="Inicio" onclick="submit()">Inicio</a>
-					</form>
-				</li>
-				<li <%if(menuAtual.equals("pessoa/pessoa.jsp")){ %>class="current_page_item" <%}%>>
-					<form method="post" action="index.jsp">						
-						<input type="hidden" name="menuAtual" value="pessoa">
-						<a accesskey="2" title="Pessoa" onclick="submit()">Pessoa</a>
-					</form>
-				</li>
-				<li <%if(menuAtual.equals("item/item.jsp")){ %>class="current_page_item" <%}%>>
-					<form method="post" action="index.jsp">	
-						<input type="hidden" name="menuAtual" value="item">
-						<a href="#" accesskey="3" title="Item" onclick="submit()">Item</a>
-					</form>
-				</li>
-				<li <%if(menuAtual.equals("tipo/tipo.jsp")){ %>class="current_page_item" <%}%>>
-					<form method="post" action="index.jsp">
-						<input type="hidden" name="menuAtual" value="tipo">
-						<a accesskey="4" title="Tipo" onclick="submit()">Tipo</a>
-					</form>
-				</li>
-				<li <%if(menuAtual.equals("emprestimo/emprestimo.jsp")){ %>class="current_page_item" <%}%>>
-					<form method="post" action="index.jsp">
-						<input type="hidden" name="menuAtual" value="emprestimo">
-						<a accesskey="5" title="Emprestimo" onclick="submit()">Emprestimo</a>
-					</form>
-				</li>
+				<%for(int i=0; i<menuTextos.size(); i++){ 
+					String textoExibido = menuTextos.get(i);%>
+					<li <%if(menuAtual.equals(textoExibido)){ %>class="current_page_item" <%}%>>
+						<form method="post" action="index.jsp">
+							<input type="hidden" name="menuAtual" value="<%=textoExibido%>">
+							<a accesskey="1" title="<%=textoExibido%>" onclick="submit()"><%=textoExibido%></a>
+						</form>
+					</li>
+				<%} %>
 			</ul>
 		</div>
 	</div>
