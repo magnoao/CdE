@@ -82,6 +82,7 @@ public class EmprestimoDAO extends DAO {
 		// prepared statement para inserção
 		objeto = (Emprestimo)o;
 		String sql = "INSERT INTO "+table+" (dataemprestimo, dataprevistadevolucao, datadevolucao, idpessoa, iditem) VALUES (?,?,?,?,?)";
+		
 		PreparedStatement stmt = connection.prepareStatement(sql);
 		
 		// seta os valores...

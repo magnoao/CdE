@@ -1,10 +1,12 @@
 <jsp:include page="header.jsp"></jsp:include>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import="java.util.*, model.*, model.dao.*"%>
+    pageEncoding="ISO-8859-1" import="java.util.*,java.text.*, util.*, model.*, model.dao.*"%>
 <%
+SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
 Vector<Emprestimo> vet = (Vector<Emprestimo>) new EmprestimoDAO().getList();
 String textoMenuAtual = "Emprestimo";
 String textoSubMenu01 = "formEmprestimo";
+
 %>
 <div id="fbox2">
 	<table>
@@ -30,9 +32,9 @@ for (int i = 0; i < vet.size(); i++) {
 					<input type="hidden" name="menuAtual" value="<%=textoMenuAtual%>">
 				</form>
 			</td>
-			<td><%=emp.getDataEmprestimo() %></td>
-			<td><%=emp.getDataPrevistaDevolucao()%></td>
-			<td><% if(emp.getDataDevolucao()!=null){%><%=emp.getDataDevolucao()%><%}else{%>?????<%} %></td>
+			<td><%if(emp.getDataEmprestimo()!=null){ %><%=df.format(emp.getDataEmprestimo())%><%}%></td>
+			<td><%if(emp.getDataPrevistaDevolucao()!=null){ %><%=df.format(emp.getDataPrevistaDevolucao())%><%}%></td>
+			<td><% if(emp.getDataDevolucao()!=null){%><%=df.format(emp.getDataDevolucao())%><%}else{%>?????<%} %></td>
 			<td><%=emp.getPessoa().getNome()%></td>
 			<td><%=emp.getItem().getNome()%></td>
 		</tr>

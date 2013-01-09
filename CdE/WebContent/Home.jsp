@@ -9,9 +9,9 @@ ConsultaDAO dao = new ConsultaDAO();
 numPessoas = dao.get("SELECT count(*) pessoas FROM tbpessoa;","pessoas");
 numCatategorias=dao.get("SELECT count(*) categorias FROM tbtipodeitem;","categorias");
 numItem=dao.get("SELECT count(*) itens FROM tbitem;","itens");
-numObjetosAtrazados=dao.get("SELECT count(*) numObjetosAtrazados FROM tbemprestimo WHERE dataprevistadevolucao < now() and datadevolucao = '0000-00-00';","numObjetosAtrazados");
-numObjetosEmprestados=dao.get("SELECT count(*) numObjetosEmprestados FROM tbemprestimo WHERE datadevolucao = '0000-00-00';","numObjetosEmprestados");
-numPessoacomObjeto=dao.get("SELECT count(*) totalpessoas FROM tbemprestimo WHERE datadevolucao = '0000-00-00' group by idpessoa ;","totalpessoas");
+numObjetosAtrazados=dao.get("SELECT count(*) as numObjetosAtrazados FROM viewitensatrasados;","numObjetosAtrazados");
+numObjetosEmprestados=dao.get("SELECT count(*) as numObjetosEmprestados FROM viewemprestados;","numObjetosEmprestados");
+numPessoacomObjeto=dao.get("SELECT count(*) as totalpessoas FROM viewdevedores;","totalpessoas");
 
 String textoMenuAtual = "Pessoa";
 String textoSubMenu01 = "formPessoa";
@@ -19,6 +19,16 @@ String textoSubMenu02 = "listaPessoa";
 
 %>
 <table>
+	<tr>
+		<td align="right">
+			<a>Numero de itens Cadastrados:<%=numItem %></a>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">
+			<a>Numero de objetos emprestados:<%=numObjetosEmprestados%></a>
+		</td>
+	</tr>
 	<tr>
 		<td align="right">
 			<form method="post" action="index.jsp">	
@@ -35,17 +45,7 @@ String textoSubMenu02 = "listaPessoa";
 	</tr>
 	<tr>
 		<td align="right">
-			<a>Numero de itens Cadastrados:<%=numItem %></a>
-		</td>
-	</tr>
-	<tr>
-		<td align="right">
 			<a>Numero de pessoas com objetos meus:<%=numPessoacomObjeto%></a>
-		</td>
-	</tr>
-	<tr>
-		<td align="right">
-			<a>Numero de objetos emprestados:<%=numObjetosEmprestados%></a>
 		</td>
 	</tr>
 	<tr>
