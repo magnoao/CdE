@@ -42,9 +42,8 @@ Released   : 20121013
 	<link href='http://fonts.googleapis.com/css?family=Abel|Satisfy' rel='stylesheet' type='text/css' />
 	 -->
 	<link href="css/default.css" rel="stylesheet" type="text/css" media="all" />
-	<!--[if IE 6]>
-	<link href="default_ie6.css" rel="stylesheet" type="text/css" />
-	<![endif]-->
+	<script type="text/javascript" src="js/scripts.js"></script>
+	
 </head>
 <body>
 <div id="header-wrapper">

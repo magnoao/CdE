@@ -13,14 +13,14 @@ if(request.getParameter("subMenuAtual")!=null){
 <div id="fbox1">
 	<ul>
 		<li>
-			<form method="post">						
+			<form method="post" action="index.jsp">						
 				<input type="hidden" name="subMenuAtual" value="<%= textoSubMenu01%>">
 				<input type="hidden" name="menuAtual" value="<%=textoMenuAtual%>">
 				<h3><a accesskey="5" title="Cadastrar Emprestimo" onclick="submit()">Cadastrar Emprestimo</a></h3>
 			</form>
 		</li>
 		<li>
-			<form method="post">						
+			<form method="post" action="index.jsp">						
 				<input type="hidden" name="subMenuAtual" value="<%= textoSubMenu02%>">
 				<input type="hidden" name="menuAtual" value="<%=textoMenuAtual%>">
 				<h3><a accesskey="5" title="Listar Emprestimos" onclick="submit()">Listar Emprestimos</a></h3>

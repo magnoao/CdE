@@ -1,12 +1,14 @@
 <jsp:include page="header.jsp"></jsp:include>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import="java.util.*, model.*, model.dao.*"%>
+    pageEncoding="ISO-8859-1" import="java.util.*, java.text.*,util.*, model.*, model.dao.*"%>
     
  <%
- Vector<Pessoa> vetPessoa = (Vector<Pessoa>)new PessoaDAO().getList();
+ SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+ 
+ Vector<Pessoa> vetPessoa = (Vector<Pessoa>)new PessoaDAO().getList("bloqueado",0);
  Pessoa pessoa = new Pessoa();
  
- Vector<Item> vetItem = (Vector<Item>)new ItemDAO().getList();
+ Vector<Item> vetItem = (Vector<Item>)new ItemDAO().getList("disponivel",1);
  Item item = new Item();
  
  Emprestimo p = new Emprestimo();
@@ -52,15 +54,15 @@
 			</tr>
 			<tr>
 				<td>Quando?</td>
-				<td><input type="text" name="email" value="<%=p.getDataEmprestimo()%>"> </td>
+				<td><input type="text" name="dataEmprestimo" value="<%if(p.getDataEmprestimo()!=null){ %><%=df.format(p.getDataEmprestimo())%><%}%>"> </td>
 			</tr>
 			<tr>
 				<td>Até quando?</td>
-				<td><input type="text" name="email" value="<%=p.getDataPrevistaDevolucao()%>"> </td>
+				<td><input type="text" name="dataPrevistaDevolucao" value="<%if(p.getDataPrevistaDevolucao()!=null){ %><%=df.format(p.getDataPrevistaDevolucao())%><%}%>"> </td>
 			</tr>
 			<tr>
 				<td>Devolvido em:</td>
-				<td><input type="text" name="email" value="<%=p.getDataDevolucao()%>"> </td>
+				<td><input type="text" name="dataDevolucao" value="<%if(p.getDataDevolucao()!=null){ %><%=df.format(p.getDataDevolucao())%><%}%>"> </td>
 			</tr>
 			<tr>
 				<td colspan="2" align="center">

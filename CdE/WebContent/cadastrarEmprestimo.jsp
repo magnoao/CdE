@@ -1,13 +1,21 @@
 <%@page import="java.sql.Date"%>
 <jsp:include page="header.jsp"></jsp:include>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import="model.*, model.dao.*"%>
+    pageEncoding="ISO-8859-1" import="util.*, model.*, model.dao.*"%>
 <%
 EmprestimoDAO dao = new EmprestimoDAO();
 Emprestimo p = new Emprestimo();
-p.setDataDevolucao(Date.valueOf(request.getParameter("dataDevolucao")));
-p.setDataEmprestimo(Date.valueOf(request.getParameter("dataEmprestimo")));
-p.setDataPrevistaDevolucao(Date.valueOf(request.getParameter("dataPrevistaDevolucao")));
+String dataDevolucao =request.getParameter("dataDevolucao");
+String dataEmprestimo =request.getParameter("dataEmprestimo"); 
+String dataPrevistaDevolucao =request.getParameter("dataPrevistaDevolucao");
+
+System.out.print("1 - "+dataDevolucao+" - 2 - "+dataEmprestimo+" - 3 - "+dataPrevistaDevolucao);
+
+System.out.println("A data formatada "+ DateFormat.parseSqlDate(dataDevolucao));
+
+p.setDataDevolucao(DateFormat.parseSqlDate(dataDevolucao));
+p.setDataEmprestimo(DateFormat.parseSqlDate(dataEmprestimo));
+p.setDataPrevistaDevolucao(DateFormat.parseSqlDate(dataPrevistaDevolucao));
 p.setItem(Integer.parseInt(request.getParameter("idItem")));
 p.setPessoa(Integer.parseInt(request.getParameter("idPessoa")));
 
