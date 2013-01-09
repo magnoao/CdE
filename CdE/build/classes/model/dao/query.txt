@@ -1,1 +1,13 @@
 //Query para construções completares do banco de dados
+
+#Pessoas que tem algum item meu na mão
+CREATE VIEW viewdevedores as
+SELECT distinct idpessoa FROM tbemprestimo WHERE datadevolucao is null
+
+#Itens emprestados
+CREATE or REPLACE VIEW viewemprestados as
+SELECT iditem FROM tbemprestimo WHERE datadevolucao is null
+
+#Itens que ja deveriam ter sido devolvidos
+CREATE OR REPLACE VIEW viewitensatrasados as
+SELECT iditem FROM tbemprestimo WHERE datadevolucao is null and dataprevistadevolucao < CURDATE()
