@@ -70,6 +70,7 @@ Released   : 20121013
 	</div>
 </div>
 <div id="footer-wrapper">
+	<%if(request.getAttribute("erroMsg")!=null){%><center><span class="erroMsg"><%=request.getAttribute("erroMsg") %></span></center><%} %>
 	<div id="footer-content">
 		<jsp:include page="<%=menuAtual%>"></jsp:include>
 	</div>

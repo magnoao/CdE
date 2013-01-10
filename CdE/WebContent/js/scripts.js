@@ -20,6 +20,7 @@ function checkForm(form) {
 			return false;
 		}
 	}
+	
 	return true;
 }
 

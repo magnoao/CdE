@@ -53,6 +53,40 @@ hr {
 	display: none;
 }
 
+.text{
+	width: 300px;
+}
+
+.tabela{
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+	border-collapse: collapse;
+}
+
+.line {
+	height: 25px; 
+}
+	
+.line:hover {
+	background-color: #ddeeff; 
+}
+
+.lineBloqueado {
+	height: 25px;
+	background-color: #F5CCD0; 
+}
+	
+.lineBloqueado:HOVER {
+	background-color: #ddeeff; 
+}
+
+.erroMsg{
+	font-style: italic;
+	color: red;
+	text-align: center;
+}
+
 /** WRAPPER */
 
 #wrapper {

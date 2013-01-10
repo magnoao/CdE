@@ -42,6 +42,7 @@ public class PessoaDAO extends DAO {
 			objeto.setEmail(rs.getString("email"));
 			objeto.setTelefone(rs.getString("telefone"));
 			objeto.setNome(rs.getString("nome"));
+			objeto.setBloqueado(rs.getBoolean("bloqueado"));
 			
 		objetos.add(objeto);
 		}
@@ -64,6 +65,7 @@ public class PessoaDAO extends DAO {
 			objeto.setEmail(rs.getString("email"));
 			objeto.setTelefone(rs.getString("telefone"));
 			objeto.setNome(rs.getString("nome"));
+			objeto.setBloqueado(rs.getBoolean("bloqueado"));
 		
 			rs.close();
 			stmt.close();
@@ -76,13 +78,14 @@ public class PessoaDAO extends DAO {
 	public void insert(Object o) throws SQLException {
 		// prepared statement para inserção
 		objeto = (Pessoa)o;
-		String sql = "INSERT INTO "+table+" (telefone, email, nome) VALUES (?,?,?)";
+		String sql = "INSERT INTO "+table+" (telefone, email, nome, bloqueado) VALUES (?,?,?,?)";
 		PreparedStatement stmt = connection.prepareStatement(sql);
 		
 		// seta os valores...
 		stmt.setString(1,objeto.getTelefone());
 		stmt.setString(2,objeto.getEmail());
 		stmt.setString(3,objeto.getNome());
+		stmt.setBoolean(4,objeto.isBloqueado());
 		
 		// executa os query criado...
 		stmt.execute();
@@ -92,13 +95,14 @@ public class PessoaDAO extends DAO {
 	@Override
 	public void updateDados(Object o) throws SQLException {
 		objeto = (Pessoa)o;
-		String sql = "UPDATE "+table+" set email=?, telefone=?, nome=?  WHERE "+getId()+" ="+objeto.getIdPessoa();
+		String sql = "UPDATE "+table+" set email=?, telefone=?, nome=?, bloqueado=?  WHERE "+getId()+" ="+objeto.getIdPessoa();
 		PreparedStatement stmt = connection.prepareStatement(sql);
 		
 		// seta os valores...
 		stmt.setString(1,objeto.getEmail());
 		stmt.setString(2,objeto.getTelefone());
 		stmt.setString(3,objeto.getNome());
+		stmt.setBoolean(4,objeto.isBloqueado());
 						
 		// executa os query criado...
 		stmt.executeUpdate();

@@ -20,15 +20,15 @@
 
 
 <div id="fbox2">
-	<form method="post" action="cadastrarTipo.jsp">
+	<form method="post" action="cadastrarTipo.jsp" onsubmit="return checkForm(this)">
 		<table>
 			<tr>
 				<td>Nome:</td>
-				<td><input type="text" name="nome" value="<%=p.getNome()%>"> </td>
+				<td><input type="text" class="text" id="Nome" name="nome" value="<%=p.getNome()%>"> </td>
 			</tr>
 			<tr>
 				<td>Descrição:</td>
-				<td><input type="text" name="descricao" value="<%=p.getDescricao()%>"> </td>
+				<td><input type="text" class="text" id="Descrição" name="descricao" value="<%=p.getDescricao()%>"> </td>
 			</tr>
 			<tr>
 				<td colspan="2" align="center">

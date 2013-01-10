@@ -26,12 +26,12 @@
  %>
 
 <div id="fbox2">
-	<form method="post" action="cadastrarEmprestimo.jsp">
+	<form method="post" action="cadastrarEmprestimo.jsp" onsubmit="return checkForm(this)">
 		<table>
 			<tr>
 				<td>Quem?</td>
 				<td>
-					<select name="idPessoa">
+					<select name="idPessoa" class="text">
 						<option></option>
 					<%for (int i = 0; i < vetPessoa.size(); i++) {
 						pessoa=vetPessoa.get(i); %>
@@ -43,7 +43,7 @@
 			<tr>
 				<td>O que?</td>
 				<td>
-					<select name="idItem">
+					<select name="idItem" class="text">
 						<option></option>
 					<%for (int i = 0; i < vetItem.size(); i++) {
 						item=vetItem.get(i); %>
@@ -54,15 +54,15 @@
 			</tr>
 			<tr>
 				<td>Quando?</td>
-				<td><input type="text" name="dataEmprestimo" value="<%if(p.getDataEmprestimo()!=null){ %><%=df.format(p.getDataEmprestimo())%><%}%>"> </td>
+				<td><input type="text" class="text" name="dataEmprestimo" value="<%if(p.getDataEmprestimo()!=null){ %><%=df.format(p.getDataEmprestimo())%><%}%>"> </td>
 			</tr>
 			<tr>
 				<td>Até quando?</td>
-				<td><input type="text" name="dataPrevistaDevolucao" value="<%if(p.getDataPrevistaDevolucao()!=null){ %><%=df.format(p.getDataPrevistaDevolucao())%><%}%>"> </td>
+				<td><input type="text" class="text" name="dataPrevistaDevolucao" value="<%if(p.getDataPrevistaDevolucao()!=null){ %><%=df.format(p.getDataPrevistaDevolucao())%><%}%>"> </td>
 			</tr>
 			<tr>
 				<td>Devolvido em:</td>
-				<td><input type="text" name="dataDevolucao" value="<%if(p.getDataDevolucao()!=null){ %><%=df.format(p.getDataDevolucao())%><%}%>"> </td>
+				<td><input type="text" class="text" name="dataDevolucao" value="<%if(p.getDataDevolucao()!=null){ %><%=df.format(p.getDataDevolucao())%><%}%>"> </td>
 			</tr>
 			<tr>
 				<td colspan="2" align="center">

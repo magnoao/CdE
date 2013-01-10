@@ -21,21 +21,18 @@
  String textoSubMenu02 = "listaItem";
  %>
 <div id="fbox2">
-	<form method="post" action="cadastrarItem.jsp">
+	<form method="post" action="cadastrarItem.jsp" onsubmit="return checkForm(this)">
 		<table>
 			<tr>
 				<td>Nome:</td>
-				<td><input type="text" name="nome" value="<%=p.getNome()%>"> </td>
+				<td><input type="text" class="text" id="Nome" name="nome" value="<%=p.getNome()%>"> </td>
 			</tr>
-			<tr>
-				<td>Descrição:</td>
-				<td><input type="text" name="descricao" value="<%=p.getDescricao()%>"> </td>
-			</tr>
+			
 			<tr>
 				<td>Tipo de Item:</td>
 				<td>
-					<select name="idTipoDeItem">
-						<option></option>
+					<select name="idTipoDeItem" id="Tipo de Item" class="text">
+						<option value="0"></option>
 						<%for (int i = 0; i < vetTipo.size(); i++) {
 						tipo=vetTipo.get(i); %>
 						<option value="<%=tipo.getIdTipoDeItem() %>" <%if(p.getTipoDeItem().getIdTipoDeItem() == tipo.getIdTipoDeItem()){ %>selected="selected" <%} %> ><%=tipo.getNome()%></option>
@@ -44,8 +41,8 @@
 				</td>
 			</tr>
 			<tr>
-				<td>Disponivel?</td>
-				<td><input type="text" name="disponivel" value="<%=p.isDisponivel()%>"> </td>
+				<td>Descrição:</td>
+				<td><input type="text" class="text" id="Descrição" name="descricao" value="<%=p.getDescricao()%>"> </td>
 			</tr>
 			<tr>
 				<td colspan="2" align="center">

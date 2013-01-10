@@ -9,10 +9,6 @@ String dataDevolucao =request.getParameter("dataDevolucao");
 String dataEmprestimo =request.getParameter("dataEmprestimo"); 
 String dataPrevistaDevolucao =request.getParameter("dataPrevistaDevolucao");
 
-System.out.print("1 - "+dataDevolucao+" - 2 - "+dataEmprestimo+" - 3 - "+dataPrevistaDevolucao);
-
-System.out.println("A data formatada "+ DateFormat.parseSqlDate(dataDevolucao));
-
 p.setDataDevolucao(DateFormat.parseSqlDate(dataDevolucao));
 p.setDataEmprestimo(DateFormat.parseSqlDate(dataEmprestimo));
 p.setDataPrevistaDevolucao(DateFormat.parseSqlDate(dataPrevistaDevolucao));
@@ -29,6 +25,8 @@ if(request.getParameter("idEmprestimo")!=null){
 	}else{
 		dao.insert(p);
 	}
+}else{
+	request.setAttribute("erroMsg", "Tipo de item não selecionado! Cadastro não realizado!");
 }
 %>
 <jsp:forward page="index.jsp"></jsp:forward>

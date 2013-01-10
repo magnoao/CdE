@@ -6,12 +6,13 @@ ItemDAO dao = new ItemDAO();
 Item p = new Item();
 p.setNome(request.getParameter("nome"));
 p.setDescricao(request.getParameter("descricao"));
-//p.setDisponivel(request.getParameter("disponivel"));
-p.setTipoDeItem(Integer.parseInt(request.getParameter("idTipoDeItem")));
 
 int id=0;
-if(request.getParameter("idItem")!=null){
+int idTipo = Integer.parseInt(request.getParameter("idTipoDeItem"));
+
+if(request.getParameter("idItem")!=null && idTipo>0){
 	id=Integer.parseInt(request.getParameter("idItem"));
+	p.setTipoDeItem(idTipo);
 
 	if(id>0){
 		p.setIdItem(id);	
@@ -19,6 +20,8 @@ if(request.getParameter("idItem")!=null){
 	}else{
 		dao.insert(p);
 	}
+}else{
+	request.setAttribute("erroMsg", "Tipo de item não selecionado! Cadastro não realizado!");
 }
 %>
 <jsp:forward page="index.jsp"></jsp:forward>

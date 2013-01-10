@@ -19,19 +19,19 @@
  %>
 
 <div id="fbox2">
-	<form method="post" action="cadastrarPessoa.jsp">
+	<form method="post" action="cadastrarPessoa.jsp" onsubmit="return checkForm(this)">
 		<table>
 			<tr>
 				<td>Nome:</td>
-				<td><input type="text" name="nome" value="<%=p.getNome()%>"> </td>
+				<td><input type="text" class="text" id="Nome" name="nome" value="<%=p.getNome()%>" maxlength="45"> </td>
 			</tr>
 			<tr>
-				<td>Teledone:</td>
-				<td><input type="text" name="telefone" value="<%=p.getTelefone()%>"> </td>
+				<td>Telefone:</td>
+				<td><input type="text" class="text" id="Telefone" name="telefone" value="<%=p.getTelefone()%>" maxlength="16"> </td>
 			</tr>
 			<tr>
 				<td>Email:</td>
-				<td><input type="text" name="email" value="<%=p.getEmail()%>"> </td>
+				<td><input type="text" class="text" id="E-mail" name="email" value="<%=p.getEmail()%>" maxlength="45"> </td>
 			</tr>
 			<tr>
 				<td colspan="2" align="center">
