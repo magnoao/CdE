@@ -3,7 +3,7 @@
     pageEncoding="ISO-8859-1" import="java.util.*, model.*, model.dao.*"%>
 <%
 Vector<TipoDeItem> vet = (Vector<TipoDeItem>)new TipoDeItemDAO().getList();
-String textoMenuAtual = "Tipo";
+String textoMenuAtual = "Item";
 String textoSubMenu01 = "formTipo";
 String textoSubMenu02 = "listaTipo";
 %>

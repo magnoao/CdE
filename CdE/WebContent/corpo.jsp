@@ -15,7 +15,6 @@ Vector<String> menuTextos = new Vector<String>();
 menuTextos.add("Home");
 menuTextos.add("Pessoa");
 menuTextos.add("Item");
-menuTextos.add("Tipo");
 menuTextos.add("Emprestimo");
 
 %>

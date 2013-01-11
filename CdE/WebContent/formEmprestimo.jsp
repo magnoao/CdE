@@ -5,10 +5,10 @@
  <%
  SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
  
- Vector<Pessoa> vetPessoa = (Vector<Pessoa>)new PessoaDAO().getList("bloqueado",0);
+ Vector<Pessoa> vetPessoa = (Vector<Pessoa>)new PessoaDAO().getList();
  Pessoa pessoa = new Pessoa();
  
- Vector<Item> vetItem = (Vector<Item>)new ItemDAO().getList("disponivel",1);
+ Vector<Item> vetItem = (Vector<Item>)new ItemDAO().getList();
  Item item = new Item();
  
  Emprestimo p = new Emprestimo();
@@ -26,7 +26,7 @@
  %>
 
 <div id="fbox2">
-	<form method="post" action="cadastrarEmprestimo.jsp" onsubmit="return checkForm(this)">
+	<form method="post" action="cadastrarEmprestimo.jsp">
 		<table>
 			<tr>
 				<td>Quem?</td>
@@ -34,8 +34,12 @@
 					<select name="idPessoa" class="text">
 						<option></option>
 					<%for (int i = 0; i < vetPessoa.size(); i++) {
-						pessoa=vetPessoa.get(i); %>
+						pessoa=vetPessoa.get(i); 
+						if(!pessoa.isBloqueado()){%>
 						<option value="<%=pessoa.getIdPessoa() %>" <%if(p.getPessoa().getIdPessoa() == pessoa.getIdPessoa()){ %>selected="selected" <%} %> ><%=pessoa.getNome()%></option>
+						<%}else if((pessoa.getIdPessoa()==p.getPessoa().getIdPessoa())){%>
+						<option value="<%=pessoa.getIdPessoa() %>" <%if(p.getPessoa().getIdPessoa() == pessoa.getIdPessoa()){ %>selected="selected" <%} %> ><%=pessoa.getNome()%></option>
+						<%} %>
 					<%} %>
 					</select>
 				</td>
@@ -46,8 +50,12 @@
 					<select name="idItem" class="text">
 						<option></option>
 					<%for (int i = 0; i < vetItem.size(); i++) {
-						item=vetItem.get(i); %>
+						item=vetItem.get(i); 
+						if(item.isDisponivel()){%>
 						<option value="<%=item.getIdItem() %>" <%if(p.getItem().getIdItem() == item.getIdItem()){ %>selected="selected" <%} %> ><%=item.getNome()%></option>
+						<%}else if((item.getIdItem()==p.getItem().getIdItem())){%>
+						<option value="<%=item.getIdItem() %>" <%if(p.getItem().getIdItem() == item.getIdItem()){ %>selected="selected" <%} %> ><%=item.getNome()%></option>
+						<%} %>
 					<%} %>
 					</select>
 				</td>
@@ -66,6 +74,7 @@
 			</tr>
 			<tr>
 				<td colspan="2" align="center">
+					<input type="hidden" name="subMenuAtualFiltro" value="0">
 					<input type="hidden" name="idEmprestimo" value="<%=p.getIdEmprestimo()%>">
 					<input type="hidden" name="subMenuAtual" value="<%= textoSubMenu02%>">
 					<input type="hidden" name="menuAtual" value="<%=textoMenuAtual%>">

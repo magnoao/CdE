@@ -20,7 +20,7 @@ Item p;
 for (int i = 0; i < vet.size(); i++) {
 	p=vet.get(i);
 %>
-		<tr <%if(p.isDisponivel()){%>class="lineBloqueado" title="Bloqueado por não ter sido devolvido ainda!" <%}else{%>class="line"<%}%>>
+		<tr <%if(!p.isDisponivel()){%>class="lineBloqueado" title="Bloqueado por não ter sido devolvido ainda!" <%}else{%>class="line"<%}%>>
 			<td align="center">
 				<form method="post" action="index.jsp">
 					<input type="submit" name="idItem" value="<%=p.getIdItem() %>">

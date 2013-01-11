@@ -2,12 +2,21 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" import="java.util.*, model.*, model.dao.*"%>
 <%
-Vector<Pessoa> vet = (Vector<Pessoa>)new PessoaDAO().getList();
+String tituloLista = "Lista de Pessoas";
+Vector<Pessoa> vet;
+
+if(request.getParameter("subMenuAtualFiltro")!=null && request.getParameter("subMenuAtualFiltro").equals("listaPessoaBloqueada")){
+	vet = (Vector<Pessoa>)new PessoaDAO().getList("bloqueado",1);
+	tituloLista = "Lista de Pessoas bloqueadas";
+}else{
+	vet = (Vector<Pessoa>)new PessoaDAO().getList();
+}
 String textoMenuAtual = "Pessoa";
 String textoSubMenu01 = "formPessoa";
 String textoSubMenu02 = "listaPessoa";
 %>
 <div id="fbox2">
+<h2 align="center"><%=tituloLista %></h2><br/>
 	<table class="tabela">
 		<tr>
 			<td width="10%" align="center">ID</td>
