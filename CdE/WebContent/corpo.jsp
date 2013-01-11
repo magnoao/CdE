@@ -2,20 +2,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" import="java.util.*, util.*"%>
 <% 
-//request.setAttribute("pageAtual","pessoa.jsp"); 
 String menuAtual = "Home.jsp";
 String selecionado = "Home";
 if(request.getParameter("menuAtual")!=null){
 	selecionado = request.getParameter("menuAtual");
 	menuAtual= selecionado +".jsp";
-	
 }
-
-Vector<String> menuTextos = new Vector<String>();
-menuTextos.add("Home");
-menuTextos.add("Pessoa");
-menuTextos.add("Item");
-menuTextos.add("Emprestimo");
 
 %>
 
@@ -55,8 +47,8 @@ Released   : 20121013
 		</div>
 		<div id="menu">
 			<ul>
-				<%for(int i=0; i<menuTextos.size(); i++){ 
-					String textoExibido = menuTextos.get(i);%>
+				<%for(int i=0; i<Textos.menusTextos.length; i++){ 
+					String textoExibido = Textos.menusTextos[i];%>
 					<li <%if(selecionado.equals(textoExibido)){ %>class="current_page_item" <%}%>>
 						<form method="post" action="index.jsp">
 							<input type="hidden" name="menuAtual" value="<%=textoExibido%>">

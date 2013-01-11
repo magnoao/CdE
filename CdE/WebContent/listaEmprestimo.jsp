@@ -1,34 +1,29 @@
-<%@page import="java.sql.Date"%>
 <jsp:include page="header.jsp"></jsp:include>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import="java.util.*,java.text.*, util.*, model.*, model.dao.*"%>
+    pageEncoding="ISO-8859-1" import="java.util.*, java.sql.Date, java.text.*, util.*, model.*, model.dao.*"%>
 <%
 String tituloLista = "Lista de Emprestimos";
 SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
 Vector<Emprestimo> vet;
 if(request.getParameter("subMenuAtualFiltro")!=null && request.getParameter("subMenuAtualFiltro").equals("listaPessoaComItens")){
 	vet = (Vector<Emprestimo>) new EmprestimoDAO().getList(" WHERE dataprevistadevolucao < CURDATE() and datadevolucao is null");
-	tituloLista = "Lista de emprestimos atrasado!";
+	tituloLista = "Lista de emprestimos atrasado";
 }else if(request.getParameter("subMenuAtualFiltro")!=null && request.getParameter("subMenuAtualFiltro").equals("listaEmprestimo")){
 	vet = (Vector<Emprestimo>) new EmprestimoDAO().getList(" WHERE datadevolucao is null");
 	tituloLista = "Lista de emprestimos em aberto";
 }else{
 	vet = (Vector<Emprestimo>) new EmprestimoDAO().getList();
 }
-
-String textoMenuAtual = "Emprestimo";
-String textoSubMenu01 = "formEmprestimo";
-
 %>
 <div id="fbox2">
 <h2 align="center"><%=tituloLista %></h2><br/>
 	<table class="tabela">
 		<tr>
 			<td width="5%" align="center"><h4>ID</h4></td>
-			<td width="12%" align="center"><h4>Emprestado</h4></td>
-			<td width="12%" align="center"><h4>Devolver</h4></td>
-			<td width="12%" align="center"><h4>Recebido</h4></td>
-			<td width="35%" align="center"><h4>Quem pegou?</h4></td>
+			<td width="14%" align="center"><h4>Emprestado</h4></td>
+			<td width="14%" align="center"><h4>Devolver</h4></td>
+			<td width="14%" align="center"><h4>Recebido</h4></td>
+			<td width="29%" align="center"><h4>Quem pegou?</h4></td>
 			<td width="24%" align="center"><h4>Item?</h4></td>
 			<td></td>
 		</tr>
@@ -41,8 +36,8 @@ for (int i = 0; i < vet.size(); i++) {
 			<td align="center">
 				<form method="post" action="index.jsp">
 					<input type="submit" name="idEmprestimo" value="<%=emp.getIdEmprestimo() %>">
-					<input type="hidden" name="subMenuAtual" value="<%= textoSubMenu01%>">
-					<input type="hidden" name="menuAtual" value="<%=textoMenuAtual%>">
+					<input type="hidden" name="subMenuAtual" value="<%=Textos.TEXTOSUBMENU09%>">
+					<input type="hidden" name="menuAtual" value="<%=Textos.TEXTOMENUATUAL3%>">
 				</form>
 			</td>
 			<td align="center"><%if(emp.getDataEmprestimo()!=null){ %><%=df.format(emp.getDataEmprestimo())%><%}%></td>

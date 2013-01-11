@@ -1,7 +1,6 @@
 <jsp:include page="header.jsp"></jsp:include>
-<%@page import="java.util.*, model.*, model.dao.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1" import="java.util.*, util.*, model.*, model.dao.*"%>
     
  <%
  Vector<TipoDeItem> vetTipo = (Vector<TipoDeItem>)new TipoDeItemDAO().getList();
@@ -10,17 +9,17 @@
  Item p = new Item();
  p.setTipoDeItem(tipo);
  int id=0;
+ String tituloLista = "Cadastro de Item";
  if(request.getParameter("idItem")!=null){
 	 id = Integer.parseInt(request.getParameter("idItem"));
+	 tituloLista = "Atualização de Item";
 	 if(id>0){
 		 p = (Item) new ItemDAO().getOne(id);
 	 }
  }
- 
- String textoMenuAtual = "Item";
- String textoSubMenu02 = "listaItem";
  %>
 <div id="fbox2">
+	<h2 align="center"><%=tituloLista %></h2><br/>
 	<form method="post" action="cadastrarItem.jsp" onsubmit="return checkForm(this)">
 		<table>
 			<tr>
@@ -47,8 +46,8 @@
 			<tr>
 				<td colspan="2" align="center">
 					<input type="hidden" name="idItem" value="<%=p.getIdItem()%>">
-					<input type="hidden" name="subMenuAtual" value="<%= textoSubMenu02%>">
-					<input type="hidden" name="menuAtual" value="<%=textoMenuAtual%>">
+					<input type="hidden" name="subMenuAtual" value="<%= Textos.TEXTOSUBMENU02%>">
+					<input type="hidden" name="menuAtual" value="<%=Textos.TEXTOMENUATUAL2%>">
 					<input type="submit" value="Salvar">
 				</td>
 			</tr>

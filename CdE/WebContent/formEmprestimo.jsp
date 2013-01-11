@@ -15,17 +15,18 @@
  p.setPessoa(new Pessoa());
  p.setItem(new Item());
  int id=0;
+ String tituloLista = "Cadastro de emprestimo";
  if(request.getParameter("idEmprestimo")!=null){
 	 id = Integer.parseInt(request.getParameter("idEmprestimo"));
+	 tituloLista = "Atualização de emprestimo";
 	 if(id>0){
 		 p = (Emprestimo) new EmprestimoDAO().getOne(id);
 	 }
  }
- String textoMenuAtual = "Emprestimo";
- String textoSubMenu02 = "listaEmprestimo";
  %>
 
 <div id="fbox2">
+	<h2 align="center"><%=tituloLista %></h2><br/>
 	<form method="post" action="cadastrarEmprestimo.jsp">
 		<table>
 			<tr>
@@ -74,10 +75,9 @@
 			</tr>
 			<tr>
 				<td colspan="2" align="center">
-					<input type="hidden" name="subMenuAtualFiltro" value="0">
 					<input type="hidden" name="idEmprestimo" value="<%=p.getIdEmprestimo()%>">
-					<input type="hidden" name="subMenuAtual" value="<%= textoSubMenu02%>">
-					<input type="hidden" name="menuAtual" value="<%=textoMenuAtual%>">
+					<input type="hidden" name="subMenuAtual" value="<%= Textos.TEXTOSUBMENU03%>">
+					<input type="hidden" name="menuAtual" value="<%=Textos.TEXTOMENUATUAL3%>">
 					<input type="submit" value="Salvar">
 					<input type="submit" value="Limpar">
 				</td>

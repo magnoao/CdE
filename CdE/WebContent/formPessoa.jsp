@@ -1,24 +1,22 @@
 <jsp:include page="header.jsp"></jsp:include>
-<%@page import="model.*, model.dao.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    
+    pageEncoding="ISO-8859-1" import="util.*, model.*, model.dao.*"%>
  <%
  Pessoa p = new Pessoa();
  int idpessoa=0;
+ String tituloLista = "Lista de Pessoa";
  if(request.getParameter("idPessoa")!=null){
 	 idpessoa = Integer.parseInt(request.getParameter("idPessoa"));
+	 tituloLista = "Atualização de Pessoa";
 	 if(idpessoa>0){
 		 p = (Pessoa) new PessoaDAO().getOne(idpessoa);
 		 System.out.print(p.getEmail());
 	 }
  }
- 
- String textoMenuAtual = "Pessoa";
- String textoSubMenu02 = "listaPessoa";
  %>
 
 <div id="fbox2">
+	<h2 align="center"><%=tituloLista %></h2><br/>
 	<form method="post" action="cadastrarPessoa.jsp" onsubmit="return checkForm(this)">
 		<table>
 			<tr>
@@ -36,12 +34,11 @@
 			<tr>
 				<td colspan="2" align="center">
 					<input type="hidden" name="idPessoa" value="<%=p.getIdPessoa()%>">
-					<input type="hidden" name="subMenuAtual" value="<%= textoSubMenu02%>">
-					<input type="hidden" name="menuAtual" value="<%=textoMenuAtual%>">
+					<input type="hidden" name="subMenuAtual" value="<%= Textos.TEXTOSUBMENU01%>">
+					<input type="hidden" name="menuAtual" value="<%=Textos.TEXTOMENUATUAL1%>">
 					<input type="submit" value="Salvar">
 				</td>
 			</tr>
 		</table>
-		
 	</form>
 </div>

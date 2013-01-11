@@ -1,6 +1,6 @@
 <jsp:include page="header.jsp"></jsp:include>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import="java.util.*, model.*, model.dao.*"%>
+    pageEncoding="ISO-8859-1" import="java.util.*, util.*, model.*, model.dao.*"%>
 <%
 String tituloLista = "Lista de Pessoas";
 Vector<Pessoa> vet;
@@ -11,9 +11,6 @@ if(request.getParameter("subMenuAtualFiltro")!=null && request.getParameter("sub
 }else{
 	vet = (Vector<Pessoa>)new PessoaDAO().getList();
 }
-String textoMenuAtual = "Pessoa";
-String textoSubMenu01 = "formPessoa";
-String textoSubMenu02 = "listaPessoa";
 %>
 <div id="fbox2">
 <h2 align="center"><%=tituloLista %></h2><br/>
@@ -34,8 +31,8 @@ for (int i = 0; i < vet.size(); i++) {
 			<td align="center">
 				<form method="post" action="index.jsp">
 					<input type="submit" name="idPessoa" value="<%=p.getIdPessoa() %>">
-					<input type="hidden" name="subMenuAtual" value="<%= textoSubMenu01%>">
-					<input type="hidden" name="menuAtual" value="<%=textoMenuAtual%>">
+					<input type="hidden" name="subMenuAtual" value="<%=Textos.TEXTOSUBMENU07%>">
+					<input type="hidden" name="menuAtual" value="<%=Textos.TEXTOMENUATUAL1%>">
 				</form>
 			</td>
 			<td><%=p.getNome() %></td>
@@ -45,8 +42,8 @@ for (int i = 0; i < vet.size(); i++) {
 				<form method="post" action="excluirPessoa.jsp"  onsubmit="return confirmaRemove()">
 					<input type="submit" value="x" >
 					<input type="hidden" name="idPessoa" value="<%=p.getIdPessoa() %>">
-					<input type="hidden" name="menuAtual" value="<%=textoMenuAtual%>">
-					<input type="hidden" name="subMenuAtual" value="<%= textoSubMenu02%>">
+					<input type="hidden" name="menuAtual" value="<%=Textos.TEXTOMENUATUAL1%>">
+					<input type="hidden" name="subMenuAtual" value="<%=Textos.TEXTOSUBMENU01%>">
 				</form>
 			</td>
 		</tr>
