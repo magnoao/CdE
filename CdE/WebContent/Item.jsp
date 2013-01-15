@@ -20,15 +20,7 @@ if(request.getParameter("subMenuAtual")!=null){
 			<form method="post" action="index.jsp">	
 				<input type="hidden" name="subMenuAtual" value="<%= Textos.TEXTOSUBMENU02%>">
 				<input type="hidden" name="menuAtual" value="<%=Textos.TEXTOMENUATUAL2%>">
-				<h3><a accesskey="2" title="" onclick="submit()">Todos os Itens</a></h3>
-			</form>
-		</li>
-		<li>
-			<form method="post" action="index.jsp">	
-				<input type="hidden" name="subMenuAtualFiltro" value="<%= Textos.TEXTOSUBMENU12%>">
-				<input type="hidden" name="subMenuAtual" value="<%= Textos.TEXTOSUBMENU02%>">
-				<input type="hidden" name="menuAtual" value="<%=Textos.TEXTOMENUATUAL2%>">
-				<h3><a accesskey="2" title="" onclick="submit()">Itens disponiveis</a></h3>
+				<h3><a accesskey="2" title="" onclick="submit()">Ver todos os Itens</a></h3>
 			</form>
 		</li>
 		<li>
@@ -36,7 +28,15 @@ if(request.getParameter("subMenuAtual")!=null){
 				<input type="hidden" name="subMenuAtualFiltro" value="<%= Textos.TEXTOSUBMENU13%>">
 				<input type="hidden" name="subMenuAtual" value="<%= Textos.TEXTOSUBMENU02%>">
 				<input type="hidden" name="menuAtual" value="<%=Textos.TEXTOMENUATUAL2%>">
-				<h3><a accesskey="2" title="" onclick="submit()">ItensBloqueados</a></h3>
+				<h3><a accesskey="2" title="" onclick="submit()">Ver Bloqueados</a></h3>
+			</form>
+		</li>
+		<li>
+			<form method="post" action="index.jsp">	
+				<input type="hidden" name="subMenuAtualFiltro" value="<%= Textos.TEXTOSUBMENU12%>">
+				<input type="hidden" name="subMenuAtual" value="<%= Textos.TEXTOSUBMENU02%>">
+				<input type="hidden" name="menuAtual" value="<%=Textos.TEXTOMENUATUAL2%>">
+				<h3><a accesskey="2" title="" onclick="submit()">Ver disponiveis</a></h3>
 			</form>
 		</li>
 		<li></li>

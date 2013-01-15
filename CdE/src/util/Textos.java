@@ -6,6 +6,7 @@ public class Textos {
 	public static final String TEXTOMENUATUAL2 = "Item";
 	public static final String TEXTOMENUATUAL3 = "Emprestimo";
 	public static final String TEXTOMENUATUAL4 = "Tipo";
+	public static final String TEXTOMENUATUAL5 = "Home";
 	public static final String TEXTOSUBMENU01 = "listaPessoa";
 	public static final String TEXTOSUBMENU02 = "listaItem";
 	public static final String TEXTOSUBMENU03 = "listaEmprestimo";

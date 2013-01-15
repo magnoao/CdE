@@ -27,6 +27,7 @@ Released   : 20121013
 <head>
 	<meta name="keywords" content="" />
 	<meta name="description" content="" />
+	<meta http-equiv="content-language" content="pt-br">
 	<title><%=Textos.TITULO %></title>
 	<!-- 
 	<link href='http://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css' />
