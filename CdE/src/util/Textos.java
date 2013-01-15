@@ -17,6 +17,8 @@ public class Textos {
 	public static final String TEXTOSUBMENU09 = "formEmprestimo";
 	public static final String TEXTOSUBMENU10 = "listaTipo";
 	public static final String TEXTOSUBMENU11 = "formTipo";
+	public static final String TEXTOSUBMENU12 = "listaItensDisponiveis";
+	public static final String TEXTOSUBMENU13 = "listaItensBloqueados";
 
 	public static final String[] menusTextos = {"Home",TEXTOMENUATUAL1,TEXTOMENUATUAL2, TEXTOMENUATUAL3};
 

@@ -25,7 +25,6 @@ public class Emprestimo {
 		try {
 			this.pessoa = (Pessoa) new PessoaDAO().getOne(pessoa);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -39,7 +38,6 @@ public class Emprestimo {
 		try {
 			this.item = (Item) new ItemDAO().getOne(item);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

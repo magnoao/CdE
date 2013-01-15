@@ -45,7 +45,6 @@ public class Item {
 		try {
 			this.tipoDeItem = (TipoDeItem)new TipoDeItemDAO().getOne(tipoDeItem);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
