@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" import="model.*, model.dao.*"%>
 <%
+/*
 TipoDeItem p = new TipoDeItem();
 
 int id=0;
@@ -12,5 +13,6 @@ if(request.getParameter("idTipoDeItem")!=null){
 		new TipoDeItemDAO().exclui(p);
 	}
 }
+*/
 %>
 <jsp:forward page="index.jsp"></jsp:forward>

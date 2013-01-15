@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" import="model.*, model.dao.*"%>
 <%
-
+/*
 if(request.getParameter("excluirPessoa")!=null){
 	System.out.print(request.getParameter("excluirPessoa"));
 }
@@ -16,6 +16,7 @@ Pessoa p = new Pessoa();
 			new PessoaDAO().exclui(p);
 		}
 	}
+*/
 //request.getRequestDispatcher("/").forward(request, response);
 //response.sendRedirect("/CdE");
 %>
