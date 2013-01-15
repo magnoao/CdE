@@ -2,10 +2,25 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" import="java.util.*,util.*, model.*, model.dao.*"%>
 <%
-Vector<Item> vet = (Vector<Item>)new ItemDAO().getList();
+
+String tituloLista = "Lista de itens";
+Vector<Item> vet;
+
+if(request.getParameter("subMenuAtualFiltro")!=null && request.getParameter("subMenuAtualFiltro").equals("listaItensDisponiveis")){
+	vet = (Vector<Item>)new ItemDAO().getList("disponivel",1);
+	tituloLista = "Lista de itens disponiveis";
+}else if(request.getParameter("subMenuAtualFiltro")!=null && request.getParameter("subMenuAtualFiltro").equals("listaItensBloqueados")){
+	vet = (Vector<Item>)new ItemDAO().getList("disponivel",0);
+	tituloLista = "Lista de itens indisponiveis";
+}else{
+	vet = (Vector<Item>)new ItemDAO().getList();
+}
+
+
 Item p;
 %>
 <div id="fbox2">
+	<h2 align="center"><%=tituloLista %></h2><br/>	
 	<table class="tabela">
 		<tr>
 			<td width="10%" align="center"><h3>ID</h3></td>

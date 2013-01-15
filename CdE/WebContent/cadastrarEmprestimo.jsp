@@ -5,6 +5,7 @@
 <%
 EmprestimoDAO dao = new EmprestimoDAO();
 ItemDAO itemDAO;
+PessoaDAO pessoaDAO;
 Emprestimo p = new Emprestimo();
 String dataDevolucao =request.getParameter("dataDevolucao");
 String dataEmprestimo =request.getParameter("dataEmprestimo"); 
@@ -25,12 +26,14 @@ if(p.getDataEmprestimo()!=null && p.getDataPrevistaDevolucao()!=null && p.getIte
 	if(request.getParameter("idEmprestimo")!=null){
 		id=Integer.parseInt(request.getParameter("idEmprestimo"));
 		itemDAO = new ItemDAO();
+		pessoaDAO = new PessoaDAO();
 		
 		if(id>0){
 			
 			Emprestimo old = (Emprestimo) dao.getOne(id);
 			//Disponibilizando o antigo item
 			Item item= (Item)itemDAO.getOne(old.getItem().getIdItem());
+			Pessoa pessoa= (Pessoa)pessoaDAO.getOne(old.getPessoa().getIdPessoa());
 			item.setDisponivel(true);
 			itemDAO.updateDados(item);
 			
@@ -46,6 +49,10 @@ if(p.getDataEmprestimo()!=null && p.getDataPrevistaDevolucao()!=null && p.getIte
 				item= (Item)itemDAO.getOne(old.getItem().getIdItem());
 				item.setDisponivel(true);
 				itemDAO.updateDados(item);
+				
+				pessoa= (Pessoa)pessoaDAO.getOne(old.getPessoa().getIdPessoa());
+				pessoa.setBloqueado(false);
+				pessoaDAO.updateDados(pessoa);
 			}
 			
 			

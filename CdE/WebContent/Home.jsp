@@ -3,6 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%
+Ajustes.ajustar();
 int numPessoas=0, numPessoasBloqueadas=0, numItem=0, numPessoacomObjeto=0,numObjetosEmprestados=0,numObjetosAtrazados=0;
 ConsultaDAO dao = new ConsultaDAO();
 

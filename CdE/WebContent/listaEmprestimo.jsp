@@ -7,7 +7,7 @@ SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
 Vector<Emprestimo> vet;
 if(request.getParameter("subMenuAtualFiltro")!=null && request.getParameter("subMenuAtualFiltro").equals("listaPessoaComItens")){
 	vet = (Vector<Emprestimo>) new EmprestimoDAO().getList(" WHERE dataprevistadevolucao < CURDATE() and datadevolucao is null");
-	tituloLista = "Lista de emprestimos atrasado";
+	tituloLista = "Lista de emprestimos atrasados";
 }else if(request.getParameter("subMenuAtualFiltro")!=null && request.getParameter("subMenuAtualFiltro").equals("listaEmprestimo")){
 	vet = (Vector<Emprestimo>) new EmprestimoDAO().getList(" WHERE datadevolucao is null");
 	tituloLista = "Lista de emprestimos em aberto";
@@ -34,11 +34,15 @@ for (int i = 0; i < vet.size(); i++) {
 %>
 		<tr <%if(emp.getDataPrevistaDevolucao().before(new java.sql.Date(new java.util.Date().getTime())) && (emp.getDataDevolucao()==null)){%>class="lineBloqueado" title="Devolução atrazada!" <%}else{%>class="line"<%}%>>
 			<td align="center">
-				<form method="post" action="index.jsp">
-					<input type="submit" name="idEmprestimo" value="<%=emp.getIdEmprestimo() %>">
-					<input type="hidden" name="subMenuAtual" value="<%=Textos.TEXTOSUBMENU09%>">
-					<input type="hidden" name="menuAtual" value="<%=Textos.TEXTOMENUATUAL3%>">
-				</form>
+				<%if(emp.getDataDevolucao()==null){ %>
+					<form method="post" action="index.jsp">
+						<input type="submit" name="idEmprestimo" value="<%=emp.getIdEmprestimo() %>">
+						<input type="hidden" name="subMenuAtual" value="<%=Textos.TEXTOSUBMENU09%>">
+						<input type="hidden" name="menuAtual" value="<%=Textos.TEXTOMENUATUAL3%>">
+					</form>
+				<%}else{ %>
+					<%=emp.getIdEmprestimo() %>
+				<%} %>
 			</td>
 			<td align="center"><%if(emp.getDataEmprestimo()!=null){ %><%=df.format(emp.getDataEmprestimo())%><%}%></td>
 			<td align="center"><%if(emp.getDataPrevistaDevolucao()!=null){ %><%=df.format(emp.getDataPrevistaDevolucao())%><%}%></td>

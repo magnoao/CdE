@@ -15,7 +15,10 @@ if(request.getParameter("idItem")!=null && idTipo>0){
 	p.setTipoDeItem(idTipo);
 
 	if(id>0){
-		p.setIdItem(id);	
+		p = (Item) dao.getOne(id);
+		p.setNome(request.getParameter("nome"));
+		p.setDescricao(request.getParameter("descricao"));
+		p.setTipoDeItem(idTipo);
 		dao.updateDados(p);
 	}else{
 		dao.insert(p);
