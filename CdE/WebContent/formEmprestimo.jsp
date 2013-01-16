@@ -27,7 +27,7 @@
  %>
 
 <div id="fbox2">
-	<h2 align="center"><%=tituloLista %></h2><br/>
+	<h2><%=tituloLista %></h2><br/>
 	<form method="post" action="cadastrarEmprestimo.jsp">
 		<table>
 			<tr>
@@ -84,6 +84,5 @@
 				</td>
 			</tr>
 		</table>
-		
 	</form>
 </div>

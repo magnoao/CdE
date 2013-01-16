@@ -15,6 +15,7 @@ Released   : 20121013
 <head>
 	<meta name="keywords" content="" />
 	<meta name="description" content="" />
+	<meta http-equiv="content-language" content="pt-br">
 	<title><%=Textos.TITULO %></title>
 	<!--
 	<link href='http://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css' />
@@ -54,16 +55,6 @@ Released   : 20121013
 					<input type="submit" value="Go!"><input type="reset" value="Clear">
 				</form>
 			</center>
-	</div>
-</div>
-<div id="page-wrapper">
-	<div id="page">
-		<div id="content">
-			
-		</div>
-		<div id="sidebar">
-					
-		</div>
 	</div>
 </div>
 <div id="footer">

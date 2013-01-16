@@ -5,7 +5,7 @@
  <%
  Pessoa p = new Pessoa();
  int idpessoa=0;
- String tituloLista = "Lista de Pessoa";
+ String tituloLista = "Cadastro de Pessoa";
  if(request.getParameter("idPessoa")!=null){
 	 idpessoa = Integer.parseInt(request.getParameter("idPessoa"));
 	 tituloLista = "Atualização de Pessoa";
@@ -17,19 +17,19 @@
  %>
 
 <div id="fbox2">
-	<h2 align="center"><%=tituloLista %></h2><br/>
-	<form method="post" action="cadastrarPessoa.jsp" onsubmit="return checkForm(this)">
-		<table>
+	<h2><%=tituloLista %></h2><br/>
+	<form method="post" action="cadastrarPessoa.jsp" onsubmit="return checkForm(this)" >
+		<table class="tabela" >
 			<tr>
-				<td>Nome:</td>
-				<td><input type="text" class="text" id="Nome" name="nome" value="<%=p.getNome()%>" maxlength="45"> </td>
+				<td align="right" width="25%" >Nome:</td>
+				<td width="75%" ><input type="text" class="text" id="Nome" name="nome" value="<%=p.getNome()%>" maxlength="45"> </td>
 			</tr>
 			<tr>
-				<td>Telefone:</td>
+				<td align="right">Telefone:</td>
 				<td><input type="text" class="text" id="Telefone" name="telefone" value="<%=p.getTelefone()%>" maxlength="16"> </td>
 			</tr>
 			<tr>
-				<td>Email:</td>
+				<td align="right">Email:</td>
 				<td><input type="text" class="text" id="E-mail" name="email" value="<%=p.getEmail()%>" maxlength="45"> </td>
 			</tr>
 			<tr>

@@ -17,7 +17,7 @@ if(request.getParameter("subMenuAtualFiltro")!=null && request.getParameter("sub
 }
 %>
 <div id="fbox2">
-<h2 align="center"><%=tituloLista %></h2><br/>
+	<h2><%=tituloLista %></h2><br/>
 	<table class="tabela">
 		<tr>
 			<td width="5%" align="center"><h4>ID</h4></td>

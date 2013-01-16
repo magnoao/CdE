@@ -20,7 +20,7 @@
 <div id="fbox2">
 	<h2 align="center"><%=tituloLista %></h2><br/>
 	<form method="post" action="cadastrarTipo.jsp" onsubmit="return checkForm(this)">
-		<table>
+		<table class="tabela" align="center">
 			<tr>
 				<td>Nome:</td>
 				<td><input type="text" class="text" id="Nome" name="nome" value="<%=p.getNome()%>"> </td>

@@ -63,18 +63,8 @@ Released   : 20121013
 </div>
 <div id="footer-wrapper">
 	<%if(request.getAttribute("erroMsg")!=null){%><center><span class="erroMsg"><%=request.getAttribute("erroMsg") %></span></center><%} %>
-	<div id="footer-content">
+	<div id="footer-content" align="center">
 		<jsp:include page="<%=menuAtual%>"></jsp:include>
-	</div>
-</div>
-<div id="page-wrapper">
-	<div id="page">
-		<div id="content">
-			
-		</div>
-		<div id="sidebar">
-						
-		</div>
 	</div>
 </div>
 <div id="footer">

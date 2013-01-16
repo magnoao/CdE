@@ -3,14 +3,16 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" import="java.util.*, util.*, model.*, model.dao.*"%>
 <%
+String tituloLista = "Lista de Tipos";
 Vector<TipoDeItem> vet = (Vector<TipoDeItem>)new TipoDeItemDAO().getList();
 %>
 <div id="fbox2">
+	<h2><%=tituloLista %></h2><br/>
 	<table class="tabela">
 		<tr>
-			<td width="10%" align="center"><h3>ID</h3> </td>
-			<td width="25%" align="center"><h3>Nome</h3></td>
-			<td width="60%" align="center"><h3>Descrição</h3></td>
+			<td width="10%" align="center"><h4>ID</h4> </td>
+			<td width="25%" align="center"><h4>Nome</h4></td>
+			<td width="65%" align="center"><h4>Descrição</h4></td>
 			<td></td>
 		</tr>
 <%

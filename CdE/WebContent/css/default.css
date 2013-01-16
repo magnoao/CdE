@@ -241,9 +241,9 @@ hr {
 /* Footer */
 
 #footer {
-	height: 100px;
-	margin: 0 auto;
-	padding: 50px 0px 15px 0px;
+	height: 5px;
+	margin: 10px 10px 10px 10px;
+	padding: 10px 10px 10px 10px;
 	font-family: 'Abel', sans-serif;
 }
 
@@ -268,11 +268,13 @@ hr {
 }
 
 #footer-content {
-	overflow: hidden;
-	width: 1000px;
+	overflow: auto;
+	width: 90%;
+	height: 400px;
 	margin: 0px auto;
 	padding: 50px 0px 50px 0px;
 	color: #717171;
+	
 }
 
 #footer-content a {
@@ -310,13 +312,14 @@ hr {
 
 #footer-content #fbox1 {
 	float: left;
-	width: 320px;
+	width: 25%;
 	margin-right: 20px;
+	
 }
 
 #footer-content #fbox2 {
 	float: right;
-	width: 640px;
+	width: 70%;
 }
 
 /* Banner Style */
