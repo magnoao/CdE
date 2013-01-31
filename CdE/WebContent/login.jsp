@@ -39,7 +39,7 @@ Released   : 20121013
 <div id="footer-wrapper">
 	<div id="footer-content">
 			<center>
-				<form name="login" action="verifica.jsp">
+				<form name="login" method="post" action="Controller">
 					<table>
 						<tr>
 							<td>Username </td>
@@ -53,6 +53,7 @@ Released   : 20121013
 					
 					
 					<input type="submit" value="Go!"><input type="reset" value="Clear">
+					<input type="hidden" name="command" value="Login">
 				</form>
 			</center>
 	</div>
