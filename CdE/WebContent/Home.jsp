@@ -18,58 +18,64 @@ numPessoacomObjeto=dao.get("SELECT count(*) as totalpessoas FROM viewdevedores;"
 <table>
 	<tr>
 		<td align="right">
-			<form method="post" action="index.jsp">	
+			<form method="post" action="<%=Textos.SERVLET%>">	
 					<input type="hidden" name="subMenuAtual" value="<%= Textos.TEXTOSUBMENU02%>">
 					<input type="hidden" name="menuAtual" value="<%=Textos.TEXTOMENUATUAL2%>">
+					<input type="hidden" name="command" value="ListaItem">
 					<a accesskey="1" title="Listar Pessoas" onclick="submit()">Numero de itens Cadastrados:<%=numItem %></a>
 			</form>
 		</td>
 	</tr>
 	<tr>
 		<td align="right">
-			<form method="post" action="index.jsp">	
+			<form method="post" action="<%=Textos.SERVLET%>">	
 					<input type="hidden" name="subMenuAtual" value="<%= Textos.TEXTOSUBMENU01%>">
 					<input type="hidden" name="menuAtual" value="<%=Textos.TEXTOMENUATUAL2%>">
+					<input type="hidden" name="command" value="ListaPessoa">
 					<a accesskey="1" title="Listar Pessoas" onclick="submit()">Numero de pessoas Cadastradas:<%=numPessoas %></a>
 			</form>
 		</td>
 	</tr>
 	<tr>
 		<td align="right">
-			<form method="post" action="index.jsp">	
+			<form method="post" action="<%=Textos.SERVLET%>">
 					<input type="hidden" name="subMenuAtualFiltro" value="<%= Textos.TEXTOSUBMENU03%>">
 					<input type="hidden" name="subMenuAtual" value="<%= Textos.TEXTOSUBMENU03%>">
 					<input type="hidden" name="menuAtual" value="<%=Textos.TEXTOMENUATUAL3%>">
+					<input type="hidden" name="command" value="ListaEmprestimo">
 					<a accesskey="2" title="Listar Pessoas" onclick="submit()">Numero de objetos emprestados:<%=numObjetosEmprestados%></a>
 			</form>
 		</td>
 	</tr>
 	<tr>
 		<td align="right">
-			<form method="post" action="index.jsp">	
+			<form method="post" action="<%=Textos.SERVLET%>">
 					<input type="hidden" name="subMenuAtualFiltro" value="<%= Textos.TEXTOSUBMENU05%>">
 					<input type="hidden" name="subMenuAtual" value="<%= Textos.TEXTOSUBMENU01%>">
 					<input type="hidden" name="menuAtual" value="<%=Textos.TEXTOMENUATUAL1%>">
+					<input type="hidden" name="command" value="ListaPessoa">
 					<a accesskey="1" title="Listar Pessoas" onclick="submit()">Numero de pessoas com objetos meus:<%=numPessoacomObjeto%></a>
 			</form>
 		</td>
 	</tr>
 	<tr>
 		<td align="right">
-			<form method="post" action="index.jsp">	
+			<form method="post" action="<%=Textos.SERVLET%>">
 					<input type="hidden" name="subMenuAtualFiltro" value="<%= Textos.TEXTOSUBMENU04%>">
 					<input type="hidden" name="subMenuAtual" value="<%= Textos.TEXTOSUBMENU01%>">
 					<input type="hidden" name="menuAtual" value="<%=Textos.TEXTOMENUATUAL1%>">
+					<input type="hidden" name="command" value="ListaPessoa">
 					<a accesskey="2" title="Listar Categorias" onclick="submit()">Numero de pessoa bloqueadas por nao devolver:<%=numPessoasBloqueadas %></a>
 			</form>
 		</td>
 	</tr>
 	<tr>
 		<td align="right">
-			<form method="post" action="index.jsp">	
+			<form method="post" action="<%=Textos.SERVLET%>">
 					<input type="hidden" name="subMenuAtualFiltro" value="<%= Textos.TEXTOSUBMENU05%>">
 					<input type="hidden" name="subMenuAtual" value="<%=Textos.TEXTOSUBMENU03%>">
 					<input type="hidden" name="menuAtual" value="<%=Textos.TEXTOMENUATUAL3%>">
+					<input type="hidden" name="command" value="ListaEmprestimo">
 					<a accesskey="1" title="Listar Pessoas" onclick="submit()">Numero de objetos que ja deveriam ter sido devolvidos:<%=numObjetosAtrazados%></a>
 			</form>
 		</td>

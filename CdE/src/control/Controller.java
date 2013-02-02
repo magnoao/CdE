@@ -30,7 +30,6 @@ public class Controller extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String nameCommand = "control.command.Cmd"+request.getParameter("command");
-		System.out.println(nameCommand+" - ");
 		Class<?> commandClass;
 		try {
 			commandClass = Class.forName(nameCommand);

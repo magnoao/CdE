@@ -10,6 +10,7 @@
 		<servlet-name>Controller</servlet-name>
 		<servlet-class>
 		control.Controller</servlet-class>
+		<load-on-startup>0</load-on-startup>
 	</servlet>
 	
 	<servlet-mapping>

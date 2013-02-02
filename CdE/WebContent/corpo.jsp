@@ -51,8 +51,9 @@ Released   : 20121013
 				<%for(int i=0; i<Textos.menusTextos.length; i++){ 
 					String textoExibido = Textos.menusTextos[i];%>
 					<li <%if(selecionado.equals(textoExibido)){ %>class="current_page_item" <%}%>>
-						<form method="post" action="index.jsp">
+						<form method="post" action="<%=Textos.SERVLET%>">
 							<input type="hidden" name="menuAtual" value="<%=textoExibido%>">
+							<input type="hidden" name="command" value="Navegar">
 							<a accesskey="1" title="<%=textoExibido%>" onclick="submit()"><%=textoExibido%></a>
 						</form>
 					</li>

@@ -3,18 +3,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" import="java.util.*, java.sql.Date, java.text.*, util.*, model.*, model.dao.*"%>
 <%
-String tituloLista = "Lista de Emprestimos";
+String tituloLista = (String) request.getAttribute("titulo");
+Vector<Emprestimo> vet = (Vector<Emprestimo>) request.getAttribute("listaDeEmprestimos") ;
 SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-Vector<Emprestimo> vet;
-if(request.getParameter("subMenuAtualFiltro")!=null && request.getParameter("subMenuAtualFiltro").equals("listaPessoaComItens")){
-	vet = (Vector<Emprestimo>) new EmprestimoDAO().getList(" WHERE dataprevistadevolucao < CURDATE() and datadevolucao is null");
-	tituloLista = "Lista de emprestimos atrasados";
-}else if(request.getParameter("subMenuAtualFiltro")!=null && request.getParameter("subMenuAtualFiltro").equals("listaEmprestimo")){
-	vet = (Vector<Emprestimo>) new EmprestimoDAO().getList(" WHERE datadevolucao is null");
-	tituloLista = "Lista de emprestimos em aberto";
-}else{
-	vet = (Vector<Emprestimo>) new EmprestimoDAO().getList();
-}
 %>
 <div id="fbox2">
 	<h2><%=tituloLista %></h2><br/>
@@ -36,10 +27,11 @@ for (int i = 0; i < vet.size(); i++) {
 		<tr <%if(emp.getDataPrevistaDevolucao().before(new java.sql.Date(new java.util.Date().getTime())) && (emp.getDataDevolucao()==null)){%>class="lineBloqueado" title="Devolução atrazada!" <%}else{%>class="line"<%}%>>
 			<td align="center">
 				<%if(emp.getDataDevolucao()==null){ %>
-					<form method="post" action="index.jsp">
+					<form method="post" action="<%=Textos.SERVLET%>">
 						<input type="submit" name="idEmprestimo" value="<%=emp.getIdEmprestimo() %>">
 						<input type="hidden" name="subMenuAtual" value="<%=Textos.TEXTOSUBMENU09%>">
 						<input type="hidden" name="menuAtual" value="<%=Textos.TEXTOMENUATUAL3%>">
+						<input type="hidden" name="command" value="Navegar">
 					</form>
 				<%}else{ %>
 					<%=emp.getIdEmprestimo() %>

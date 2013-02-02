@@ -3,21 +3,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" import="java.util.*,util.*, model.*, model.dao.*"%>
 <%
-
-String tituloLista = "Lista de itens";
-Vector<Item> vet;
-
-if(request.getParameter("subMenuAtualFiltro")!=null && request.getParameter("subMenuAtualFiltro").equals("listaItensDisponiveis")){
-	vet = (Vector<Item>)new ItemDAO().getList("disponivel",1);
-	tituloLista = "Lista de itens disponiveis";
-}else if(request.getParameter("subMenuAtualFiltro")!=null && request.getParameter("subMenuAtualFiltro").equals("listaItensBloqueados")){
-	vet = (Vector<Item>)new ItemDAO().getList("disponivel",0);
-	tituloLista = "Lista de itens indisponiveis";
-}else{
-	vet = (Vector<Item>)new ItemDAO().getList();
-}
-
-
+String tituloLista = (String)request.getAttribute("titulo");//"Lista de itens";
+Vector<Item> vet = (Vector<Item>) request.getAttribute("listaDeItens");
 Item p;
 %>
 <div id="fbox2">
@@ -35,16 +22,17 @@ for (int i = 0; i < vet.size(); i++) {
 %>
 		<tr <%if(!p.isDisponivel()){%>class="lineBloqueado" title="Bloqueado por não ter sido devolvido ainda!" <%}else{%>class="line"<%}%>>
 			<td align="center">
-				<form method="post" action="index.jsp">
+				<form method="post" action="<%=Textos.SERVLET%>">
 					<input type="submit" name="idItem" value="<%=p.getIdItem() %>">
 					<input type="hidden" name="subMenuAtual" value="<%=Textos.TEXTOSUBMENU08%>">
 					<input type="hidden" name="menuAtual" value="<%=Textos.TEXTOMENUATUAL2%>">
+					<input type="hidden" name="command" value="Navegar">
 				</form>
 			</td>
 			<td><%=p.getNome() %></td>
 			<td align="center"><%=p.getTipoDeItem().getNome()%></td>
 			<td>
-				<form method="post" action="excluirItem.jsp" onsubmit="return confirmaRemove()">
+				<form method="post" action="<%=Textos.SERVLET%>" onsubmit="return confirmaRemove()">
 					<input type="submit" value="x" >
 					<input type="hidden" name="idItem" value="<%=p.getIdItem() %>">
 					<input type="hidden" name="menuAtual" value="<%=Textos.TEXTOMENUATUAL2%>">

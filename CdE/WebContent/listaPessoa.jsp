@@ -1,17 +1,11 @@
 <jsp:include page="header.jsp"></jsp:include>
 <jsp:include page="invalidaAcesso.jsp"></jsp:include>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import="java.util.*, util.*, model.*, model.dao.*"%>
+    pageEncoding="ISO-8859-1" import="java.util.*, util.*, model.*"%>
 <%
-String tituloLista = "Lista de Pessoas";
-Vector<Pessoa> vet;
-
-if(request.getParameter("subMenuAtualFiltro")!=null && request.getParameter("subMenuAtualFiltro").equals("listaPessoaBloqueada")){
-	vet = (Vector<Pessoa>)new PessoaDAO().getList("bloqueado",1);
-	tituloLista = "Lista de Pessoas bloqueadas";
-}else{
-	vet = (Vector<Pessoa>)new PessoaDAO().getList();
-}
+String tituloLista = (String)request.getAttribute("titulo"); //"Lista de Pessoas";
+Vector<Pessoa> vet = (Vector<Pessoa>)request.getAttribute("listaDePessoas");
+Pessoa p;
 %>
 <div id="fbox2">
 	<h2><%=tituloLista %></h2><br/>
@@ -24,23 +18,23 @@ if(request.getParameter("subMenuAtualFiltro")!=null && request.getParameter("sub
 			<td></td>
 		</tr>
 <%
-Pessoa p;
 for (int i = 0; i < vet.size(); i++) {
 	p=vet.get(i);
 %>
 		<tr <%if(p.isBloqueado()){%>class="lineBloqueado" title="Bloqueado por ter itens com devolucão atrasada!" <%}else{%>class="line"<%}%>>
 			<td align="center">
-				<form method="post" action="index.jsp">
+				<form method="post" action="<%=Textos.SERVLET%>">
 					<input type="submit" name="idPessoa" value="<%=p.getIdPessoa() %>">
 					<input type="hidden" name="subMenuAtual" value="<%=Textos.TEXTOSUBMENU07%>">
 					<input type="hidden" name="menuAtual" value="<%=Textos.TEXTOMENUATUAL1%>">
+					<input type="hidden" name="command" value="Navegar">
 				</form>
 			</td>
 			<td><%=p.getNome() %></td>
 			<td><%=p.getEmail()%></td>
 			<td align="center"><%=p.getTelefone() %></td>
 			<td >
-				<form method="post" action="excluirPessoa.jsp"  onsubmit="return confirmaRemove()">
+				<form method="post" action="<%=Textos.SERVLET%>"  onsubmit="return confirmaRemove()">
 					<input type="submit" value="x" >
 					<input type="hidden" name="idPessoa" value="<%=p.getIdPessoa() %>">
 					<input type="hidden" name="menuAtual" value="<%=Textos.TEXTOMENUATUAL1%>">
