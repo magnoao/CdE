@@ -58,10 +58,10 @@ public class UsuarioDAO extends DAO {
 		String sql =select+queryComplementar;
 		PreparedStatement stmt = connection.prepareStatement(sql);
 
-		objeto = new Usuario();
 		rs = stmt.executeQuery(sql);
 		
 		if (rs.next()){
+			objeto = new Usuario();
 			objeto.setIdUsuario(Integer.parseInt(rs.getString(getId())));
 			objeto.setLogin(rs.getString("login"));
 			objeto.setSenha(rs.getString("senha"));

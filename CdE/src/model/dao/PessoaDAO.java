@@ -33,7 +33,6 @@ public class PessoaDAO extends DAO {
 	public Vector<?> getList(String queryComplementar)
 			throws SQLException {
 		PreparedStatement stmt = this.connection.prepareStatement(select+queryComplementar);
-
 		ResultSet rs = stmt.executeQuery();
 		Vector<Pessoa> objetos = new Vector<Pessoa>();
 		while (rs.next()) {
