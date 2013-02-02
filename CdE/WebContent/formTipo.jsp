@@ -19,7 +19,7 @@
 
 <div id="fbox2">
 	<h2 align="center"><%=tituloLista %></h2><br/>
-	<form method="post" action="cadastrarTipo.jsp" onsubmit="return checkForm(this)">
+	<form method="post" action="<%=Textos.SERVLET %>" onsubmit="return checkForm(this)" >
 		<table class="tabela" align="center">
 			<tr>
 				<td>Nome:</td>
@@ -34,6 +34,7 @@
 					<input type="hidden" name="idTipoDeItem" value="<%=p.getIdTipoDeItem()%>">
 					<input type="hidden" name="subMenuAtual" value="<%=Textos.TEXTOSUBMENU10%>">
 					<input type="hidden" name="menuAtual" value="<%=Textos.TEXTOMENUATUAL2%>">
+					<input type="hidden" name="command" value="CadastrarTipo">
 					<input type="submit" value="Salvar">
 					<input type="submit" value="Limpar">
 				</td>

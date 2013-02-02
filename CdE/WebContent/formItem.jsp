@@ -21,7 +21,7 @@
  %>
 <div id="fbox2">
 	<h2><%=tituloLista %></h2><br/>
-	<form method="post" action="cadastrarItem.jsp" onsubmit="return checkForm(this)">
+	<form method="post" action="<%=Textos.SERVLET %>" onsubmit="return checkForm(this)" >
 		<table>
 			<tr>
 				<td>Nome:</td>
@@ -49,6 +49,7 @@
 					<input type="hidden" name="idItem" value="<%=p.getIdItem()%>">
 					<input type="hidden" name="subMenuAtual" value="<%= Textos.TEXTOSUBMENU02%>">
 					<input type="hidden" name="menuAtual" value="<%=Textos.TEXTOMENUATUAL2%>">
+					<input type="hidden" name="command" value="CadastrarItem">
 					<input type="submit" value="Salvar">
 				</td>
 			</tr>

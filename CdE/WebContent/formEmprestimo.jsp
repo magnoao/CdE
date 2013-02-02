@@ -28,7 +28,7 @@
 
 <div id="fbox2">
 	<h2><%=tituloLista %></h2><br/>
-	<form method="post" action="cadastrarEmprestimo.jsp">
+	<form method="post" action="<%=Textos.SERVLET %>">
 		<table>
 			<tr>
 				<td>Quem?</td>
@@ -79,6 +79,7 @@
 					<input type="hidden" name="idEmprestimo" value="<%=p.getIdEmprestimo()%>">
 					<input type="hidden" name="subMenuAtual" value="<%= Textos.TEXTOSUBMENU03%>">
 					<input type="hidden" name="menuAtual" value="<%=Textos.TEXTOMENUATUAL3%>">
+					<input type="hidden" name="command" value="CadastrarEmprestimo">
 					<input type="submit" value="Salvar">
 					<input type="submit" value="Limpar">
 				</td>
