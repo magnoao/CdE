@@ -39,7 +39,8 @@ Released   : 20121013
 <div id="footer-wrapper">
 	<div id="footer-content">
 			<center>
-				<form name="login" method="post" action="Controller">
+			<%if(request.getAttribute("erroMsg")!=null){%><center><span class="erroMsg"><%=request.getAttribute("erroMsg") %></span></center><%} %>
+				<form name="login" method="post" action="<%=Textos.SERVLET %>">
 					<table>
 						<tr>
 							<td>Username </td>
