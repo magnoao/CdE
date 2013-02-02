@@ -1,18 +1,16 @@
 <jsp:include page="header.jsp"></jsp:include>
-<%@page import="util.*, model.dao.ConsultaDAO"%>
+<%@page import="util.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%
-Ajustes.ajustar();
 int numPessoas=0, numPessoasBloqueadas=0, numItem=0, numPessoacomObjeto=0,numObjetosEmprestados=0,numObjetosAtrazados=0;
-ConsultaDAO dao = new ConsultaDAO();
 
-numPessoas = dao.get("SELECT count(*) pessoas FROM tbpessoa;","pessoas");
-numPessoasBloqueadas=dao.get("SELECT count(*) as bloqueados FROM tbpessoa where bloqueado =1;","bloqueados");
-numItem=dao.get("SELECT count(*) itens FROM tbitem;","itens");
-numObjetosAtrazados=dao.get("SELECT count(*) as numObjetosAtrazados FROM viewitensatrasados;","numObjetosAtrazados");
-numObjetosEmprestados=dao.get("SELECT count(*) as numObjetosEmprestados FROM viewemprestados;","numObjetosEmprestados");
-numPessoacomObjeto=dao.get("SELECT count(*) as totalpessoas FROM viewdevedores;","totalpessoas");
+numPessoas = Integer.parseInt(request.getAttribute("numPessoas").toString());
+numPessoasBloqueadas =  Integer.parseInt(request.getAttribute("numPessoasBloqueadas").toString());
+numItem =  Integer.parseInt(request.getAttribute("numItem").toString());
+numObjetosAtrazados =  Integer.parseInt(request.getAttribute("numObjetosAtrazados").toString());
+numObjetosEmprestados =  Integer.parseInt(request.getAttribute("numObjetosEmprestados").toString());
+numPessoacomObjeto =  Integer.parseInt(request.getAttribute("numPessoacomObjeto").toString());
 
 %>
 <table>

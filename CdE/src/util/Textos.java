@@ -1,7 +1,7 @@
 package util;
 
 public class Textos {
-	public static final String TITULO = "SedeP";
+	public static final String TITULO = "Emprestimos";
 	public static final String SERVLET = "Controller";
 	public static final String TEXTOMENUATUAL1 = "Pessoa";
 	public static final String TEXTOMENUATUAL2 = "Item";

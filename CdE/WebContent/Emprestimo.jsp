@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" import="util.*"%>
 <%
-String subMenuAtual = "nada.jsp";
+String subMenuAtual = "listaEmprestimo.jsp";
 if(request.getParameter("subMenuAtual")!=null){
 	subMenuAtual = request.getParameter("subMenuAtual").toString()+".jsp";
 }

@@ -53,7 +53,7 @@ Released   : 20121013
 					<li <%if(selecionado.equals(textoExibido)){ %>class="current_page_item" <%}%>>
 						<form method="post" action="<%=Textos.SERVLET%>">
 							<input type="hidden" name="menuAtual" value="<%=textoExibido%>">
-							<input type="hidden" name="command" value="Navegar">
+							<input type="hidden" name="command" value="<%=textoExibido%>">
 							<a accesskey="1" title="<%=textoExibido%>" onclick="submit()"><%=textoExibido%></a>
 						</form>
 					</li>
